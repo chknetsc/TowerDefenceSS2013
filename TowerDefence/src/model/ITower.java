@@ -1,4 +1,4 @@
-package TowerDefence;
+package model;
 
 public interface ITower {
      public int getDamage();                      // Returns the Damage

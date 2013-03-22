@@ -1,4 +1,4 @@
-package TowerDefence;
+package model;
 
 public class Tower implements ITower {
 
