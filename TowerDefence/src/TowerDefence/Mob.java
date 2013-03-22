@@ -1,5 +1,5 @@
 package TowerDefence;
 
-public class TestClass {
+public class Mob {
 
 }
