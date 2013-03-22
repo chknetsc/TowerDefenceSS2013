@@ -1,7 +1,8 @@
 package TowerDefence;
 
 public class TowerDefence {
-	String test1;
-	String test2;
-	String test4;
+	public static void main( String[] args )
+	  {
+		System.out.println("Towerdefence");
+	  }
 }
