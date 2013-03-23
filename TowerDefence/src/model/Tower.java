@@ -73,7 +73,7 @@ public class Tower implements ITower {
 	@Override
 	// Set the hitrate of the Tower
 	public boolean setHitRate(double hitrate) {
-		if ( hitrate > 0 && hitrate <= 1.0 ) {
+		if ( hitrate > 0.0 && hitrate <= 1.0 ) {
 			this.hitrate = hitrate;
 			return true;
 		}
@@ -83,7 +83,15 @@ public class Tower implements ITower {
 	@Override
 	// Calc the Damage of one shoot
 	public int calcDamage() {
-		return 0;
+		int random = (int)(this.random(1.0, 100.0)+0.5);
+		// Tower has hit the target
+		if(random <= this.hitrate*100) {
+			return this.damage;
+		// Tower didn't hit the target
+		// Make the Damage weaker 
+		} else {
+			return (int)(this.damage*(random/100.0));
+		}
 	}
 	
 	// Calc a random double
