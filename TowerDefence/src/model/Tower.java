@@ -8,6 +8,7 @@ public class Tower implements ITower {
 	int speed_tmp;    // Time to the Next shoot 
 	double hitrate;   // Hitrate of the Tower
 	
+	// Set the Tower to the Values
 	public Tower(int damage, int range, int speed, double hitrate) {
 		this.setDamage(damage);      // Set Damage to Value
 		this.setRange(range);        // Set Range to Value
