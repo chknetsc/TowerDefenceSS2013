@@ -8,14 +8,14 @@ public class PlayingField implements IPlayingField {
 	private int sizeX;
 	private int sizeY;
 	
-	// Konstructor with standard values
+	// Constructor with standard values
 	public PlayingField() {
 		this.field = new Field[100][100];
 		this.sizeX = 100;
 		this.sizeY = 100;
 	}
 	
-	// Konstructor with special values
+	// Constructor with special values
 	public PlayingField(int sizeX, int sizeY) {
 		this.field = new Field[sizeX][sizeY];
 		this.sizeX = sizeX;
