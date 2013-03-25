@@ -2,6 +2,8 @@ package model;
 
 import junit.framework.TestCase;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FieldTest extends TestCase {
 	
@@ -16,7 +18,31 @@ public class FieldTest extends TestCase {
 	}
 	
 	public void testDoc() {
-		// Set and get Tower
+		// issetTower pruefen
 		assertEquals(false,field.isSetTower());
+		assertEquals(true,field.setTower(tower));
+		assertEquals(false,field.setTower(tower));
+		assertEquals(true,field.isSetTower());
+		
+		//get mob
+		List<Mob> list = new LinkedList<Mob>();
+		assertEquals(list,field.getMobs());
+		
+		//SetMob
+		assertEquals(false,field.setMob(mob));
+		
+		// Delete Tower
+		assertEquals(tower,field.deleteTower());
+		assertEquals(false,field.isSetTower());
+		
+		//SetMob
+		assertEquals(true,field.setMob(mob));
+		
+		//Return mobs
+		assertEquals(1,field.getNumberOfMobs());
+		
+		//Set tower
+		assertEquals(false,field.setTower(tower));
+		
 	}
 }

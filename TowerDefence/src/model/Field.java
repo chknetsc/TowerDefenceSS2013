@@ -32,6 +32,14 @@ public class Field implements IField {
 	}
 	
 	@Override
+	// Returns the deleted Tower
+	public Tower deleteTower() {
+		Tower tmp = this.getTower();
+		this.tower = null;
+		return tmp;
+	}
+	
+	@Override
 	// Checks if a tower is set
 	public boolean isSetTower() {
 		if(this.tower == null) {
