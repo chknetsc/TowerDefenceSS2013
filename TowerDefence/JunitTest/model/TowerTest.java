@@ -31,14 +31,15 @@ public class TowerTest extends TestCase {
 		
 		// Set and Get HitRate
 		assertEquals(true,tower.setHitRate(1.0));
-		assertEquals(false,tower.setHitRate(0.0));
+		assertEquals(true,tower.setHitRate(0.0));
 		assertEquals(false,tower.setHitRate(2.0));
 		assertEquals(false,tower.setHitRate(-2.0));
+		assertEquals(true,tower.setHitRate(1.0));
 		assertEquals(1.0,tower.getHitRate());
 		
 		// CalcDamage 
 		assertEquals(1,tower.calcDamage());
-		tower.hitrate = 0.0;
+		tower.setHitRate(0.0);
 		assertEquals(0,tower.calcDamage());
 		
 		// Set and Get NumberShoot

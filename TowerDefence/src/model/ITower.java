@@ -1,6 +1,7 @@
 package model;
 
 public interface ITower {
+
      public int getDamage();                      // Returns the Damage
      public boolean setDamage(int damage);        // Set the Damage of the Tower
      public double getHitRate();                  // Returns the hitrate

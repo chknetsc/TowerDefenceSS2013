@@ -2,12 +2,12 @@ package model;
 
 public class Tower implements ITower {
 
-	int damage;       // Damage of the Tower
-	int range;        // Range of shooting
-	int speed;        // Speed of Shooting
-	int speed_tmp;    // Time to the Next shoot
-	int numberShoot;
-	double hitrate;   // Hitrate of the Tower
+	private int damage;       // Damage of the Tower
+	private int range;        // Range of shooting
+	private int speed;        // Speed of Shooting
+	private int speed_tmp;    // Time to the Next shoot
+	private int numberShoot;  // Numper of Shoots each round
+	private double hitrate;   // Hitrate of the Tower
 	
 	// Set the Tower to the Values
 	public Tower(int damage, int range, int speed, int numberShoot, double hitrate) {
@@ -76,7 +76,7 @@ public class Tower implements ITower {
 	@Override
 	// Set the hitrate of the Tower
 	public boolean setHitRate(double hitrate) {
-		if ( hitrate > 0.0 && hitrate <= 1.0 ) {
+		if ( hitrate >= 0.0 && hitrate <= 1.0 ) {
 			this.hitrate = hitrate;
 			return true;
 		}
