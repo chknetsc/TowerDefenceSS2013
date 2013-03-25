@@ -1,6 +1,6 @@
 package model;
 
-public class Mob {
+public class Mob implements IMob {
 	
 	private int live;			// Gesundheit des Mobs
 	private int speed; 			// Bewegunstempo des Mobs
@@ -12,10 +12,12 @@ public class Mob {
 	}
 	
 	// Get and Set Health
+
 	public int getLive() {
 		return live;
 	}
 	
+
 	public void setLive(int health) {
 		this.live = health;
 	}
@@ -26,6 +28,7 @@ public class Mob {
 	}
 	
 	
+
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}

@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class MobTest extends TestCase {
 	
-Mob mob;
+IMob mob;
 	
 	public void setUp() throws IOException {
 		mob = new Mob(100, 1);
