@@ -54,21 +54,10 @@ public class Field implements IField {
 	@Override
 	// Returns a List of the Mobs on the Field
 	public List<Mob> getMobs() {
-		return this.mobs;
+		List<Mob> mobs = new LinkedList<Mob>(this.mobs);
+		return mobs;
 	}
 	
-	@Override
-	// Delete the List of the mobs
-	// Funktion wird warsch nicht Funktionieren wegen Referenz
-	public List<Mob> deleteList() {
-		List<Mob> tmp = null;
-		if(!this.isSetTower()) {
-		tmp = this.getMobs();
-		this.mobs.clear();
-		}
-	    return tmp;
-	}
-
 	@Override
 	// Returns the Number of Mobs
 	public int getNumberOfMobs() {

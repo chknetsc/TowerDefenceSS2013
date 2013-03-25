@@ -5,16 +5,18 @@ public class Tower implements ITower {
 	int damage;       // Damage of the Tower
 	int range;        // Range of shooting
 	int speed;        // Speed of Shooting
-	int speed_tmp;    // Time to the Next shoot 
+	int speed_tmp;    // Time to the Next shoot
+	int numberShoot;
 	double hitrate;   // Hitrate of the Tower
 	
 	// Set the Tower to the Values
-	public Tower(int damage, int range, int speed, double hitrate) {
-		this.setDamage(damage);      // Set Damage to Value
-		this.setRange(range);        // Set Range to Value
-		this.setSpeed(speed);        // Set Speed to Value
-		this.setHitRate(hitrate);    // Set Hitrate to Value
-		this.speed_tmp = this.speed; // Init with the Speed
+	public Tower(int damage, int range, int speed, int numberShoot, double hitrate) {
+		this.setDamage(damage);              // Set Damage to Value
+		this.setRange(range);                // Set Range to Value
+		this.setSpeed(speed);                // Set Speed to Value
+		this.setHitRate(hitrate);            // Set Hitrate to Value
+		this.setNumberOfShoot(numberShoot);  // Set number of shoot to Value
+		this.speed_tmp = this.speed;         // Init with the Speed
 	}
 	
 	@Override
@@ -80,13 +82,29 @@ public class Tower implements ITower {
 		}
 	return false;
 	}
+	
+	@Override
+	// Set the Number of Shoot
+	public boolean setNumberOfShoot(int shoot) {
+		if ( shoot > 0 ) {
+			this.numberShoot = shoot;
+			return true;
+		}
+	return false;
+	}
+
+	@Override
+	// Returns the Numer of Shoot
+	public int getNumberOfShoot() {
+		return this.numberShoot;
+	}
 
 	@Override
 	// Calc the Damage of one shoot
 	public int calcDamage() {
 		int random = (int)(this.random(1.0, 100.0)+0.5);
 		// Tower has hit the target
-		if(random <= this.hitrate*100) {
+		if( random <= this.hitrate*100 ) {
 			return this.damage;
 		// Tower didn't hit the target
 		// Make the Damage weaker 
@@ -99,5 +117,4 @@ public class Tower implements ITower {
 	public double random(double low, double high) {
 		return Math.random() * (high - low) + low;
 	}
-
 }

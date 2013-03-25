@@ -12,7 +12,7 @@ public class TowerDefence {
 		System.out.println("!!!!");
 		System.out.println("!!!!");
 		
-		Tower tower = new Tower(100,1,1,0.0);
+		Tower tower = new Tower(100,1,1,1,0.0);
 		for(int i=0;i<100;i++){
 			System.out.println(tower.calcDamage());
 		}

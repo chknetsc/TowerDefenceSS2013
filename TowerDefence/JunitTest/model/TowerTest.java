@@ -9,7 +9,7 @@ public class TowerTest extends TestCase {
 	Tower tower;
 	
 	public void setUp() throws IOException {
-		tower = new Tower(1, 1, 1, 1.0);
+		tower = new Tower(1, 1, 1, 1, 1.0);
 	}
 	
 	public void testDoc() {
@@ -40,6 +40,11 @@ public class TowerTest extends TestCase {
 		assertEquals(1,tower.calcDamage());
 		tower.hitrate = 0.0;
 		assertEquals(0,tower.calcDamage());
+		
+		// Set and Get NumberShoot
+		assertEquals(true,tower.setNumberOfShoot(1));
+		assertEquals(false,tower.setNumberOfShoot(0));
+		assertEquals(1,tower.getNumberOfShoot());
 		
 		// Randomwert erzeugen
 		assertEquals(1.0,tower.random(1.0, 1.0));

@@ -9,6 +9,5 @@ public interface IField {
 	public boolean isSetTower();             // Checks if a tower is set
 	public boolean setMob(Mob mob);          // Place one Mob on the Field
 	public List<Mob> getMobs();              // Returns a List of the Mobs on the Field
-	public List<Mob> deleteList();           // Delete the List of the mobs
 	public int getNumberOfMobs();            // Returns the Number of Mobs
 }
