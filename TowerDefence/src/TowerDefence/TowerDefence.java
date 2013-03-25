@@ -26,4 +26,16 @@ public class TowerDefence {
 		field.setMob(3, 2, mob2);
 		System.out.println(field.drawPlayingField());
 	  }
+	
+	/*
+	Tui tui = new Tui();
+	
+	Scanner scanner = new Scanner(System.in);
+	tui.printMenue();
+	
+	boolean continu = true;				// Solange true bis Spiel abgebrochen wird
+	while(continu) {
+		continu = tui.handleInput(scanner.next());
+	}
+	*/
 }
