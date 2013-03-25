@@ -18,7 +18,7 @@ public class PlayingField implements IPlayingField {
 	
 	// Constructor with special values
 	public PlayingField(int sizeX, int sizeY) {
-		this.field = new Field[sizeX][sizeY];
+		this.field = new Field[sizeY][sizeX];
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.init();
@@ -28,7 +28,7 @@ public class PlayingField implements IPlayingField {
 	private void init() {
 		for(int i=0; i<this.sizeX; i++) {
 			for(int j=0; j<this.sizeY; j++) {
-				this.field[i][j] = new Field();
+				this.field[j][i] = new Field();
 			}
 		}
 	}
@@ -36,13 +36,13 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Tower on the Playingfield at x,y
 	public boolean setTower(int x, int y, Tower tower) {
-		return this.field[x][y].setTower(tower);
+		return this.field[y][x].setTower(tower);
 	}
 
 	@Override
 	// Returns the Tower from x,y at the Playingfield
 	public Tower getTower(int x, int y) {
-		return this.field[x][y].getTower();
+		return this.field[y][x].getTower();
 	}
 
 	@Override
@@ -55,13 +55,13 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Mob on the Playingfield at x,y
 	public boolean setMob(int x, int y, Mob mob) {
-		return this.field[x][y].setMob(mob);
+		return this.field[y][x].setMob(mob);
 	}
 
 	@Override
 	// Returns the Mobs from x,y at the Playingfield
 	public List<Mob> getMob(int x, int y) {
-		return this.field[x][y].getMobs();
+		return this.field[y][x].getMobs();
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class PlayingField implements IPlayingField {
 	// Returns a String of the PlayingField 
 	public String drawPlayingField() {
 		StringBuilder str = new StringBuilder();
-		for(int i=0; i<this.sizeX; i++) {
+		for(int i=0; i<this.sizeY; i++) {
 		   str.append("###");	
 		}	
 		str.append("##\n");

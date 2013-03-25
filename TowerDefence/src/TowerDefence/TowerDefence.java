@@ -20,16 +20,13 @@ public class TowerDefence {
 		
 		PlayingField field = new PlayingField(10,10);
 		System.out.println(field.drawPlayingField());
-		field.setTower(0, 0, tower);
-		field.setTower(0, 1, tower);
-		field.setTower(0, 2, tower);
-		field.setTower(0, 3, tower);
-		field.setTower(1, 3, tower);
-		field.setTower(2, 3, tower);
-		field.setMob(1,0, mob);
-		field.setMob(1,1, mob);
-		field.setTower(2, 0, tower);
-		field.setTower(2, 1, tower);
+		field.setMob(0, 0, mob);
+		field.setMob(1, 0, mob);
+		field.setMob(2, 0, mob);
+		field.setTower(0,1, tower);
+		field.setTower(1,1, tower);
+		field.setTower(2,1, tower);
+		field.setTower(3,1, tower);
 		System.out.println(field.drawPlayingField());
 	  }
 }
