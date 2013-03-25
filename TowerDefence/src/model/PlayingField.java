@@ -26,9 +26,9 @@ public class PlayingField implements IPlayingField {
 	
 	// Initialize the PlayingField
 	private void init() {
-		for(int i=0; i<this.sizeX; i++) {
-			for(int j=0; j<this.sizeY; j++) {
-				this.field[j][i] = new Field();
+		for(int i=0; i<this.sizeY; i++) {
+			for(int j=0; j<this.sizeX; j++) {
+				this.field[i][j] = new Field();
 			}
 		}
 	}
@@ -36,13 +36,28 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Tower on the Playingfield at x,y
 	public boolean setTower(int x, int y, Tower tower) {
-		return this.field[y][x].setTower(tower);
+		// Search for the same Tower on the PlayField
+		for(int i=0; i<this.sizeX; i++) {
+			for(int j=0; j<this.sizeY; j++) {
+				if(this.field[j][i].getTower() == tower) {
+					return false;
+				}
+			}
+		}
+		// Set the tower on the Playfield
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+			return this.field[y][x].setTower(tower);
+		}
+	    return false;
 	}
 
 	@Override
 	// Returns the Tower from x,y at the Playingfield
 	public Tower getTower(int x, int y) {
-		return this.field[y][x].getTower();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		    return this.field[y][x].getTower();
+		}
+		return null;
 	}
 
 	@Override
@@ -55,13 +70,31 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Mob on the Playingfield at x,y
 	public boolean setMob(int x, int y, Mob mob) {
-		return this.field[y][x].setMob(mob);
+		// Search for the same Mob on the PlayField
+		for(int i=0; i<this.sizeX; i++) {
+			for(int j=0; j<this.sizeY; j++) {
+				if(this.field[j][i].getNumberOfMobs() != 0) {
+					List<Mob> m = this.field[j][i].getMobs();
+					if(m.contains(mob)){
+						return false;
+					}
+				}
+			}
+		}
+        // Set the Mob on the Playfield	
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		    return this.field[y][x].setMob(mob);
+		}
+		return false;
 	}
 
 	@Override
 	// Returns the Mobs from x,y at the Playingfield
 	public List<Mob> getMob(int x, int y) {
-		return this.field[y][x].getMobs();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		    return this.field[y][x].getMobs();
+		}
+		return null;
 	}
 
 	@Override
@@ -91,13 +124,13 @@ public class PlayingField implements IPlayingField {
 	// Returns a String of the PlayingField 
 	public String drawPlayingField() {
 		StringBuilder str = new StringBuilder();
-		for(int i=0; i<this.sizeY; i++) {
+		for(int i=0; i<this.sizeX; i++) {
 		   str.append("###");	
 		}	
 		str.append("##\n");
-		for(int i=0; i<this.sizeX; i++) {
+		for(int i=0; i<this.sizeY; i++) {
 			str.append("#");
-			for(int j=0; j<this.sizeY; j++) {
+			for(int j=0; j<this.sizeX; j++) {
 				if(this.field[i][j].isSetTower()) {
 					str.append("-+-");
 				} else if(this.field[i][j].getNumberOfMobs() != 0) {
