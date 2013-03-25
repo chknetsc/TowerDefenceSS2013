@@ -10,9 +10,9 @@ public class FieldTest extends TestCase {
 	Mob mob;
 	
 	public void setUp() throws IOException {
-		Field field = new Field();
-		Tower tower = new Tower(1,1,1,1,1.0);
-		Mob mob = new Mob(10,2);
+		field = new Field();
+		tower = new Tower(1,1,1,1,1.0);
+		mob = new Mob(10,2);
 	}
 	
 	public void testDoc() {
