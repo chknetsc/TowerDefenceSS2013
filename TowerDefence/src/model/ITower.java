@@ -13,4 +13,5 @@ public interface ITower {
      public int calcDamage();                     // Calc the Damage of one shoot
      public boolean setNumberOfShoot(int shoot);  // Set the Number of Shoot 
      public int getNumberOfShoot();               // Returns the Numer of Shoot
+     //public void shoot();                         // Shoot the Mobs in his Area
 }

@@ -11,4 +11,5 @@ public interface IField {
 	public boolean setMob(Mob mob);          // Place one Mob on the Field
 	public List<Mob> getMobs();              // Returns a List of the Mobs on the Field
 	public int getNumberOfMobs();            // Returns the Number of Mobs
+	public int getTypeOf();                  // Returns what is on the Field 0-> nothing 1-> tower 2->mob
 }

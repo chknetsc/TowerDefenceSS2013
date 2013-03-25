@@ -71,4 +71,16 @@ public class Field implements IField {
 	public int getNumberOfMobs() {
 		return this.NumberMobs;
 	}
+
+	@Override
+	// Returns what is on the Field 0-> nothing 1-> tower 2->mob
+	public int getTypeOf() {
+		if(this.isSetTower()) {
+			return 1;
+		} else if (this.getNumberOfMobs() != 0) {
+			return 2;
+		} else {
+			return 0;
+		}
+	}
 }

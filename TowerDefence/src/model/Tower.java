@@ -98,7 +98,7 @@ public class Tower implements ITower {
 	public int getNumberOfShoot() {
 		return this.numberShoot;
 	}
-
+	
 	@Override
 	// Calc the Damage of one shoot
 	public int calcDamage() {

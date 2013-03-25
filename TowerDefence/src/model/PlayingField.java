@@ -63,7 +63,9 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Deletes a tower on x,y and returns the tower
 	public Tower deleteTower(int x, int y) {
-		// TODO Auto-generated method stub
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		    return this.field[y][x].deleteTower();
+		}
 		return null;
 	}
 
