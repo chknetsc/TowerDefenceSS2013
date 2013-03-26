@@ -17,7 +17,12 @@ public class Mob implements IMob {
 		return live;
 	}
 	
-
+	
+    /* Deine Set Methoden können auch negative werte annehmen
+     * des müsstest du noch verbessern.
+     * könnte sonst noch zu problemen komnmen*/
+	
+	
 	public void setLive(int health) {
 		this.live = health;
 	}
@@ -27,8 +32,6 @@ public class Mob implements IMob {
 		return speed;
 	}
 	
-	
-
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
@@ -48,7 +51,4 @@ public class Mob implements IMob {
 			return false;				// False wenn Mob noch lebt
 		}
 	}
-	
-	
-
 }
