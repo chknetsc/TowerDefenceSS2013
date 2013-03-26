@@ -2,6 +2,9 @@ package TowerDefence;
 
 import java.util.Scanner;
 
+import contoller.IGameController;
+import controller.impl.GameController;
+
 import textUI.Tui;
 
 import model.impl.Mob;
@@ -25,14 +28,17 @@ public class TowerDefence {
 		System.out.println(field.drawPlayingField());
 		
 		*/
-		Tui tui = new Tui();
+		IGameController controller = new GameController();
+		Tui tui = new Tui(controller);
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		tui.printMenue();
 		
 		boolean continu = true;				// Solange true bis Spiel abgebrochen wird
 		while(continu) {
 			continu = tui.handleInput(scanner.next());
+			tui.bringPlayingField();
 		}
 		//*/
 		

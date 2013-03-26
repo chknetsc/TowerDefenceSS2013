@@ -1,33 +1,40 @@
 package textUI;
 
+import contoller.IGameController;
+
+
+// Text based UI 
 public class Tui {
 	
-	public Tui() {
-	// Später Controller und Oberserver einfügen
+	IGameController controller;
+	
+	public Tui(IGameController controller) {
+		// Später Oberserver einfügen
+		this.controller = controller;
 	}
 
 	// Handle User Inputs and call the Funktions from Controller
 	public boolean handleInput(String input) {
+		char towerart = input.charAt(0);								// Cut input Sting in singel characters
 		
-		// Cut String in single char
-		char towerart = input.charAt(0);
-		
-		// Prüft Eingabe und erstellt daraus Tower
 		if(towerart == 'T' || towerart == 't') {
-			if (checkSizeValue(input.charAt(2),input.charAt(4))) {
-				// controller.createTower();
+			int xPosition = Integer.parseInt(input.substring(2, 3));
+			int yPosition = Integer.parseInt(input.substring(4, 5));
+
+			if (checkSizeValue(xPosition,yPosition)) {						// Check X and Y User Input and 
+				controller.createAndSetTower(xPosition, yPosition);			// create a Tower on the Field
 				printTui("Tower erstellt");
 				return true;
 			}
-			printTui("Tower kann nicht erstellt werden");
+			printTui("Tower kann nicht erstellt werden");				// Fehlerausgabe fals Werte flasch sind
 			return true;
 		}
-		else if(towerart == 'Q' || towerart == 'q') {
+		else if(towerart == 'Q' || towerart == 'q') {					// Verlasse Spiel
 			printTui("Spiel Beendet");
 			return false;
 		}
 		else {
-			printTui("Flasche Eingabe");
+			printTui("Flasche Eingabe");								// Ausgabe wenn Eingabe fehlerhaft
 			return true;
 		}
 		
@@ -36,14 +43,13 @@ public class Tui {
 	
 	// Check if the x an y are acceptable Values
 	public boolean checkSizeValue(int xPosition,int yPosition) {
-		/*
-		if (xPosition < 0 || xPosition > contoller.fetchSizeX() ||
-			yPosition < 0 || yPosition > contoller.fetchSizeX() ) {
-				printTui("Werte sind zu klein oder groß für Spielfeld");
-				return false;
-			}
-			*/
-		return true;
+		if ((xPosition >= 0 && xPosition <= controller.fetchSizeX()) &&
+			(yPosition >= 0 && yPosition <= controller.fetchSizeX())) {
+			return true;
+		}
+		printTui("Werte sind zu klein oder groß für Spielfeld");
+		return false;
+		
 	}
 
 	// Show up Menue Text depend on count of User Inputs 
@@ -58,8 +64,7 @@ public class Tui {
 	}
 	
 	public void bringPlayingField() {
-		String spielfeld = "";
-		// controller.fetchPlayingField();
+		String spielfeld = controller.fetchPlayingField();
 		printTui(spielfeld);
 	}
 	

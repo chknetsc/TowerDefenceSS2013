@@ -14,4 +14,7 @@ public interface IPlayingField {
 	public List<Mob> getMob(int x, int y);               // Returns the Mobs from x,y at the Playingfield
 	public boolean moveMobs();                           // Moves the Mobs to the next Field
 	public boolean calculateWay();                       // Calculates the Way of the Mobs
+	public int getSizeX();								 // Returns the X Size of the PlayingField
+	public int getSizeY();								 // Returns the Y Size of the PlayingField
+	public String drawPlayingField();					 // Returns a String of the PlayingField
 }
