@@ -71,6 +71,20 @@ public class Field implements IField {
 	public int getNumberOfMobs() {
 		return this.NumberMobs;
 	}
+	
+	@Override
+	// Deletes all Mobs from the list where Damage < 0
+	public boolean deleteDeadMobs() {
+		boolean del = false;
+		for(int i = 0; i<this.mobs.size(); i++) {
+			Mob m = this.mobs.get(i);
+			if(m.getLive() < 0) {
+				this.mobs.remove(i);
+				del = true;
+			}
+		}
+		return del;
+	}
 
 	@Override
 	// Returns what is on the Field 0-> nothing 1-> tower 2->mob
