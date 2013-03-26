@@ -6,40 +6,52 @@ import contoller.IGameController;
 // Text based UI 
 public class Tui {
 	
-	IGameController controller;
+	IGameController controller;												
 	
-	public Tui(IGameController controller) {
+	public Tui(IGameController controller) {								// Connect Controller with Tui
 		// Später Oberserver einfügen
 		this.controller = controller;
 	}
 
 	// Handle User Inputs and call the Funktions from Controller
 	public boolean handleInput(String input) {
-		char towerart = input.charAt(0);								// Cut input Sting in singel characters
+		char towerart = input.charAt(0);									// Cut input Sting in a singel characters
 		
-		if(towerart == 'T' || towerart == 't') {
-			int xPosition = Integer.parseInt(input.substring(2, 3));
-			int yPosition = Integer.parseInt(input.substring(4, 5));
-
-			if (checkSizeValue(xPosition,yPosition)) {						// Check X and Y User Input and 
-				controller.createAndSetTower(xPosition, yPosition);			// create a Tower on the Field
-				printTui("Tower erstellt");
-				return true;
-			}
-			printTui("Tower kann nicht erstellt werden");				// Fehlerausgabe fals Werte flasch sind
-			return true;
-		}
-		else if(towerart == 'Q' || towerart == 'q') {					// Verlasse Spiel
+		if(towerart == 'Q' || towerart == 'q') {
 			printTui("Spiel Beendet");
 			return false;
 		}
 		else {
-			printTui("Flasche Eingabe");								// Ausgabe wenn Eingabe fehlerhaft
-			return true;
+			// TODO Elegantere Möglichkeit finden
+			int xPosition = Integer.parseInt(input.substring(2, 3));		
+			int yPosition = Integer.parseInt(input.substring(4, 5));
+			
+			if (checkSizeValue(xPosition,yPosition)) {								// Check X and Y User Input and 
+				
+				// Tower setzen
+				if(towerart == 'T' || towerart == 't') {
+					// TODO If Fall einbauen falls Platz bereits belegt
+						controller.createAndSetTower(xPosition, yPosition);			// create a Tower on the Field
+						printTui("Tower erstellt");
+						return true;
+				}
+				// Monster spawnen bzw später anderen Tower erstellen
+				else if(towerart == 'M' || towerart == 'm') {
+					// TODO If Fall einbauen falls Platz bereits belegt
+					controller.createAndSetMob(xPosition, yPosition);				// create a Mob on the Field
+					printTui("Mob gespawnt");
+					return true;
+				} else {
+					printTui("Tower nicht vorhanden");								// Ausgabe wenn Eingabe fehlerhaft
+					return true;
+				}
+			} else {
+				printTui("Flasche Eingabe");										// Ausgabe wenn Eingabe fehlerhaft
+				return true;
+			}
 		}
-		
 	}
-	
+		
 	
 	// Check if the x an y are acceptable Values
 	public boolean checkSizeValue(int xPosition,int yPosition) {
