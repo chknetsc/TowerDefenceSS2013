@@ -11,7 +11,7 @@ public class MobTest extends TestCase {
 IMob mob;
 	
 	public void setUp() throws IOException {
-		mob = new Mob(100, 1);
+		mob = new Mob();
 	}
 	
 	public void testDoc() {

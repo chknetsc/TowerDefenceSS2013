@@ -15,28 +15,28 @@ public class Tui {
 
 	// Handle User Inputs and call the Funktions from Controller
 	public boolean handleInput(String input) {
-		char towerart = input.charAt(0);									// Cut input Sting in a singel characters
 		
-		if(towerart == 'Q' || towerart == 'q') {
+		String[] splitInput = input.split(",");			// Cut input Sting in a singel characters
+									
+		if(splitInput[0].equalsIgnoreCase("Q")) {
 			printTui("Spiel Beendet");
 			return false;
 		}
 		else {
-			// TODO Elegantere Möglichkeit finden
-			int xPosition = Integer.parseInt(input.substring(2, 3));		
-			int yPosition = Integer.parseInt(input.substring(4, 5));
+			int xPosition = Integer.parseInt(splitInput[1]);		
+			int yPosition = Integer.parseInt(splitInput[2]);
 			
 			if (checkSizeValue(xPosition,yPosition)) {								// Check X and Y User Input and 
 				
 				// Tower setzen
-				if(towerart == 'T' || towerart == 't') {
+				if(splitInput[0].equalsIgnoreCase("T")) {
 					// TODO If Fall einbauen falls Platz bereits belegt
 						controller.createAndSetTower(xPosition, yPosition);			// create a Tower on the Field
 						printTui("Tower erstellt");
 						return true;
 				}
 				// Monster spawnen bzw später anderen Tower erstellen
-				else if(towerart == 'M' || towerart == 'm') {
+				else if(splitInput[0].equalsIgnoreCase("M")) {
 					// TODO If Fall einbauen falls Platz bereits belegt
 					controller.createAndSetMob(xPosition, yPosition);				// create a Mob on the Field
 					printTui("Mob gespawnt");
@@ -76,7 +76,8 @@ public class Tui {
 	}
 	
 	public void bringPlayingField() {
-		String spielfeld = controller.fetchPlayingField();
+		String spielfeld = "";
+		spielfeld = controller.fetchPlayingField();
 		printTui(spielfeld);
 	}
 	

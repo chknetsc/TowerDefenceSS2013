@@ -8,9 +8,8 @@ public class Mob implements IMob {
 	private int speed; 			// Bewegunstempo des Mobs
 	
 	// Konstruktor
-	public Mob(int live, int speed) {
-		setLive(live);
-		setSpeed(speed);
+	public Mob() {
+
 	}
 	
 	// Get and Set Health

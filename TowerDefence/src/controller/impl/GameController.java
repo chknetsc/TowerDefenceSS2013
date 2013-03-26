@@ -23,7 +23,7 @@ public class GameController implements IGameController {
 	
 	//----------------------- Mehoden zum Testen der Klassen (Protoypten) ---------------------------
 	
-	
+
 	public void createAndSetTower(int xPosition, int yPosition) {
 		tower = new Tower(1,1,1,1,1.0);
 		playingField.setTower(xPosition, yPosition, (Tower) tower);
@@ -31,7 +31,7 @@ public class GameController implements IGameController {
 	
 
 	public void createAndSetMob(int xPosition, int yPosition) {
-		mob = new Mob(10,1);
+		mob = new Mob();
 		playingField.setMob(xPosition, yPosition, (Mob) mob);
 	}
 	
