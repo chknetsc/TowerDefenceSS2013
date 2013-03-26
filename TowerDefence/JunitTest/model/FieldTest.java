@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.impl.Field;
+import model.impl.Mob;
+import model.impl.Tower;
+
 public class FieldTest extends TestCase {
 	
 	Field field;

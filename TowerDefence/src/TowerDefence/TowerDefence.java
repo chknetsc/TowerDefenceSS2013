@@ -1,19 +1,17 @@
 package TowerDefence;
 
-import model.Mob;
-import model.PlayingField;
-import model.Tower;
+import java.util.Scanner;
+
+import textUI.Tui;
+
+import model.impl.Mob;
+import model.impl.PlayingField;
+import model.impl.Tower;
 
 public class TowerDefence {
 	public static void main( String[] args )
 	  {
-		System.out.println("Towerdefence");
-		System.out.println("ist ein");
-		System.out.println("super");
-		System.out.println("Spiel");
-		System.out.println("!!!!");
-		System.out.println("!!!!");
-		
+		/*
 		Tower tower = new Tower(1,1,1,1,1.0);
 		Mob mob = new Mob(10,10);
 		Mob mob2 = new Mob(10,10);
@@ -25,17 +23,21 @@ public class TowerDefence {
 		field.setMob(2, 2, mob);
 		field.setMob(3, 2, mob2);
 		System.out.println(field.drawPlayingField());
+		
+		*/
+		Tui tui = new Tui();
+		
+		Scanner scanner = new Scanner(System.in);
+		tui.printMenue();
+		
+		boolean continu = true;				// Solange true bis Spiel abgebrochen wird
+		while(continu) {
+			continu = tui.handleInput(scanner.next());
+		}
+		//*/
+		
+		
+		
 	  }
 	
-	/*
-	Tui tui = new Tui();
-	
-	Scanner scanner = new Scanner(System.in);
-	tui.printMenue();
-	
-	boolean continu = true;				// Solange true bis Spiel abgebrochen wird
-	while(continu) {
-		continu = tui.handleInput(scanner.next());
-	}
-	*/
 }

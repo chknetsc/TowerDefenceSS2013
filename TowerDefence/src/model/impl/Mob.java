@@ -1,4 +1,6 @@
-package model;
+package model.impl;
+
+import model.IMob;
 
 public class Mob implements IMob {
 	

@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+import model.impl.Mob;
+import model.impl.Tower;
+
 public interface IField {
 	
 	public boolean setTower(Tower tower);    // Place one Tower on the Field

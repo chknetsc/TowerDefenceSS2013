@@ -1,6 +1,8 @@
-package model;
+package model.impl;
 
 import java.util.List;
+
+import model.IPlayingField;
 
 public class PlayingField implements IPlayingField {
 	

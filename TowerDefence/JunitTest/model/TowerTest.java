@@ -2,6 +2,8 @@ package model;
 
 import java.io.IOException;
 
+import model.impl.Tower;
+
 import junit.framework.TestCase;
 
 public class TowerTest extends TestCase {

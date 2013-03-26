@@ -1,4 +1,6 @@
-package model;
+package model.impl;
+
+import model.ITower;
 
 public class Tower implements ITower {
 

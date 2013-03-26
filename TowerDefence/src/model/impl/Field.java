@@ -1,7 +1,9 @@
-package model;
+package model.impl;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import model.IField;
 
 public class Field implements IField {
 	

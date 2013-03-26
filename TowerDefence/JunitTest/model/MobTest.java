@@ -2,6 +2,8 @@ package model;
 
 import java.io.IOException;
 
+import model.impl.Mob;
+
 import junit.framework.TestCase;
 
 public class MobTest extends TestCase {
