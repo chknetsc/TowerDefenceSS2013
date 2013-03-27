@@ -18,7 +18,7 @@ public class FastMob extends Mob {
 		switch(level) {								// Set Live and Speed to the spezific Level
 		
 			case 1:				// Level 1
-				setLive(  );
+				setLive(10);
 				setSpeed(1);
 				break;
 			case 2:				// Level 2
