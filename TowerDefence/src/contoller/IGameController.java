@@ -11,5 +11,8 @@ public interface IGameController {
 	public int fetchSizeY();
 
 	public String fetchPlayingField();
+	
+	// Set the Size of the PlayingField to Small, Middle, Big
+	public void setSizeofPlayingField(int groese);
 
 }

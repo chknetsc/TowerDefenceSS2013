@@ -35,8 +35,12 @@ public class TowerDefence {
 		Scanner scanner = new Scanner(System.in);
 		tui.printMenue();
 		
+		tui.setPlayingFieldSize(scanner.nextInt());
+		tui.bringPlayingField();
+		
 		boolean continu = true;				// Solange true bis Spiel abgebrochen wird
 		while(continu) {
+			tui.printInstruktions();
 			continu = tui.handleInput(scanner.next());
 			tui.bringPlayingField();
 		}

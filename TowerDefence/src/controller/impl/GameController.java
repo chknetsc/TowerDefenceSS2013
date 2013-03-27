@@ -50,5 +50,16 @@ public class GameController implements IGameController {
 		return playingField.drawPlayingField();	
 	}
 	
-
+	// Set the Size of the PlayingField to Small, Middle, Big
+	public void setSizeofPlayingField(int groese) {
+		if(1 == groese) {
+			playingField.initPlayingField(20, 20);
+		}
+		else if(2 == groese) {
+			playingField.initPlayingField(50, 50);
+		}
+		else {
+			playingField.initPlayingField(100, 100);
+		}
+	}
 }

@@ -68,11 +68,27 @@ public class Tui {
 	public void printMenue() {
 		String menue = "WILLKOMMEN BEIM SPIEL SPACETOWERDEFENCE !!!!!!!!!\n" +	
 						"Edit by Martin and Chris :)\n\n" +
-						"Wählen sie eine Option aus !\n" +
-						"'T' um Tower zu setzen auf die Position 'X,Y' \n" +
-						"Beispiel: 'T,1,2'  \n" +
-						"oder 'Q' um das Spiel zu verlassen ...\n";
+						"Wählen sie die Spielfeldgröße \n" +
+						"Klein  = 1\n" +
+						"Mittel = 2\n" +
+						"Groß   = 3\n" +
+						"==> ";
 		printTui(menue);
+	}
+	
+	// Set the Size of the PlayingField
+	public void setPlayingFieldSize(int groese) {
+		controller.setSizeofPlayingField(groese);
+		
+	}
+	
+	// Show the Instuktions for the User
+	public void printInstruktions() {
+		String instruktion = 
+				"Wählen sie eine Option aus !\n" +
+				"'T' um Tower zu setzen auf die Position 'X,Y' Beispiel: 'T,1,2'  \n" +
+				"oder 'Q' um das Spiel zu verlassen ...\n";
+		printTui(instruktion);
 	}
 	
 	public void bringPlayingField() {
