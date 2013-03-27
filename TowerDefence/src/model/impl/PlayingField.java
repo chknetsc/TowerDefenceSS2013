@@ -12,22 +12,27 @@ public class PlayingField implements IPlayingField {
 	
 	// Constructor with standard values
 	public PlayingField() {
-		this.field = new Field[100][100];
-		this.sizeX = 100;
-		this.sizeY = 100;
-		this.init();
+		this.sizeX = 0;
+		this.sizeY = 0;
 	}
 	
 	// Constructor with special values
 	public PlayingField(int sizeX, int sizeY) {
-		this.field = new Field[sizeY][sizeX];
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.init();
-	}	
+	}
+	
+	// Function to Initialize the PlayingField later
+	public void initPlayingField(int sizeX, int sizeY) {
+		this.sizeX = sizeX;
+		this.sizeY = sizeY;
+		this.init();
+	}
 	
 	// Initialize the PlayingField
 	private void init() {
+		this.field = new Field[sizeY][sizeX];
 		for(int i=0; i<this.sizeY; i++) {
 			for(int j=0; j<this.sizeX; j++) {
 				this.field[i][j] = new Field();

@@ -7,6 +7,7 @@ import model.impl.Tower;
 
 public interface IPlayingField {
 	
+    public void initPlayingField(int sizeX, int sizeY);  // Function to Initialize the PlayingField later
 	public boolean setTower(int x, int y, Tower tower);  // Place a Tower on the Playingfield at x,y
 	public Tower getTower(int x, int y);                 // Returns the Tower from x,y at the Playingfield
 	public Tower deleteTower(int x, int y);              // Deletes a tower on x,y and returns the tower
