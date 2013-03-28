@@ -52,10 +52,11 @@ public class TowerDefence {
 		//*/
 		
 		ICheckWay way = new CheckWay();
-		way.initWayPoints(4, 4);
+		way.initWayPoints(7, 6);
 		System.out.println(way.getNumberofVertex(2, 1));
 		//System.out.println(way.deleteWayPoint(2, 2));
-		System.out.println(way.existWay(0, 0, 3, 3));
+		System.out.println(way.existWay(0, 0, 3, 3)); 
+		way.getCoordOfVertex(1);
 		
 		/*
 	   System.out.println(path.searchShortestPath(1, 16));

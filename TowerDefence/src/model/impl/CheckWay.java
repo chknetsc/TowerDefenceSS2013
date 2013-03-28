@@ -47,6 +47,17 @@ public class CheckWay implements ICheckWay {
 		return 0;
 	}	
 	
+	// Returns the Coord of the Vertex
+	public Coord getCoordOfVertex(int vertex) {
+		Coord c = new Coord();
+		if((this.sizeX*this.sizeY >= vertex) && (vertex > 0)) {
+		  c.setY((vertex-1)/this.sizeX);
+		  c.setX(((vertex-1)-this.sizeX*c.getY()));
+		  return c;
+		}
+		return null;
+	}
+	
 	// Proof if there is a way
 	public boolean existWay(int startX, int startY, int endX, int endY) {
 		int vertex1 = this.getNumberofVertex(startX, startY);

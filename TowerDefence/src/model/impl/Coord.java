@@ -4,6 +4,12 @@ public class Coord {
      private int x;
      private int y;
      
+     
+     public Coord(){
+    	 this.setX(0);
+    	 this.setY(0);
+     }
+     
      public Coord(int x, int y){
     	 this.setX(x);
     	 this.setY(y);
