@@ -41,9 +41,11 @@ public class CheckWay implements ICheckWay {
 	
 	// Returns the Number of the Vertex
 	public int getNumberofVertex(int x, int y) {
+		if(this.sizeX > x && this.sizeY > y) {
 		return ((this.sizeX)*(y+1)) - ((this.sizeX-1)-x);
-	}
-	
+		}
+		return 0;
+	}	
 	
 	// Proof if there is a way
 	public boolean existWay(int startX, int startY, int endX, int endY) {
