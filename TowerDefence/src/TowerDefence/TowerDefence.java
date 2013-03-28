@@ -1,6 +1,12 @@
 package TowerDefence;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+
+import AsternTest.AdjacencyListUndirectedGraph;
+import AsternTest.DijkstraShortestPath;
+import AsternTest.IGraph;
 
 import contoller.IGameController;
 import controller.impl.GameController;
@@ -27,7 +33,7 @@ public class TowerDefence {
 		field.setMob(3, 2, mob2);
 		System.out.println(field.drawPlayingField());
 		
-		*/
+		*/ /*
 		IGameController controller = new GameController();
 		Tui tui = new Tui(controller);
 		
@@ -46,8 +52,43 @@ public class TowerDefence {
 		}
 		//*/
 		
+		IGraph<Integer> g = new AdjacencyListUndirectedGraph<Integer>();
+		DijkstraShortestPath<Integer> path = new DijkstraShortestPath<Integer>(g);
 		
+		for(int i = 1; i<17; i++) {
+		  g.addVertex(i);
+		  System.out.println("Add Vertex " + i);
+		}
+		
+		for(int i = 1; i<17; i++) {
+		    if((i%4) != 0) {
+			    g.addEdge(i,i+1);
+			    System.out.println("Add Node between " + i + " and " + (i+1));
+		    }
+		    
+		    if(i<13) {
+			    g.addEdge(i,i+4);
+			    System.out.println("Add Node between " + i + " and " + (i+4));
+		    }
+		}
+	   System.out.println(path.searchShortestPath(1, 16));
+	   List<Integer> l = path.getShortestPath();
+	   
+	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
+	   {
+	     System.out.println(i.next());
+	   }
+	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
+	   System.out.println(g.delteEdge(2, 1));
+	   System.out.println(g.delteEdge(5, 6));
+	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
+	   System.out.println(path.searchShortestPath(1, 16));
+	   l = path.getShortestPath();
+	   
+	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
+	   {
+	     System.out.println(i.next());
+	   }
 		
 	  }
-	
 }
