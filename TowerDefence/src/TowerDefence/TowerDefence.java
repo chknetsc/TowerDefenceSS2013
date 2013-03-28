@@ -4,15 +4,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import AsternTest.AdjacencyListUndirectedGraph;
-import AsternTest.DijkstraShortestPath;
-import AsternTest.IGraph;
 
 import contoller.IGameController;
 import controller.impl.GameController;
 
 import textUI.Tui;
 
+import model.IGraph;
+import model.impl.AdjacencyListUndirectedGraph;
+import model.impl.DijkstraShortestPath;
 import model.impl.Mob;
 import model.impl.PlayingField;
 import model.impl.Tower;

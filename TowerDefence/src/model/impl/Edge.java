@@ -1,4 +1,4 @@
-package AsternTest;
+package model.impl;
 
 public class Edge<V> {
 

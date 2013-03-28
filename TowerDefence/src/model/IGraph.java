@@ -1,6 +1,9 @@
-package AsternTest;
+package model;
 
 import java.util.List;
+
+import model.impl.Edge;
+
 
 
 public interface IGraph<V> {

@@ -1,6 +1,8 @@
-package AsternTest;
+package model.impl;
 
 import java.util.*;
+
+import model.IGraph;
 
 public class DijkstraShortestPath<V> {
 	
