@@ -79,8 +79,11 @@ public class TowerDefence {
 	     System.out.println(i.next());
 	   }
 	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
-	   System.out.println(g.delteEdge(2, 1));
-	   System.out.println(g.delteEdge(5, 6));
+	   System.out.println(g.deleteAllEdgeOn(10));
+	   System.out.println(g.deleteAllEdgeOn(8));
+	   System.out.println(g.deleteAllEdgeOn(12));
+	   System.out.println(g.deleteAllEdgeOn(9));
+	   System.out.println(g.deleteAllEdgeOn(2));
 	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
 	   System.out.println(path.searchShortestPath(1, 16));
 	   l = path.getShortestPath();
@@ -89,6 +92,10 @@ public class TowerDefence {
 	   {
 	     System.out.println(i.next());
 	   }
-		
+	   l = g.getAdjacentVertexList(1);
+	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
+	   {
+	     System.out.println(i.next());
+	   }	
 	  }
 }

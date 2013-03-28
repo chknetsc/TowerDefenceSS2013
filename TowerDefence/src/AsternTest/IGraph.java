@@ -9,6 +9,7 @@ public interface IGraph<V> {
  boolean addEdge(V v, V w);                    // Adds a new Edge to the graph with weight 1.0
  boolean addEdge(V v, V w, double weight);     // Adds a new Edge to the graph with weight
  boolean delteEdge(V v, V w);                  // delete a Edge between v and w
+ boolean deleteAllEdgeOn(V v);                 // delete all Edge to this Point
  boolean containsVertex(V v);                  // Checks if graph contains node
  boolean containsEdge(V v, V w);               // Checks if graph contains edge
  double getWeight(V v, V w);                   // Returns the weight of the edge

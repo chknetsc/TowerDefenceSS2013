@@ -47,6 +47,18 @@ public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 		return false;				
 	}
 	
+	public boolean deleteAllEdgeOn(V v){
+		if(this.adjacencyList.containsKey(v)) {
+			List<V> l = this.getAdjacentVertexList(v);
+			for ( Iterator<V> i = l.iterator(); i.hasNext(); )
+			   {
+				 this.delteEdge(v, i.next());
+			   }
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean delteEdge(V v, V w){
 		if(this.containsEdge(v, w)) {
 			this.adjacencyList.get(v).remove(w);
@@ -64,6 +76,7 @@ public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 					 this.edgeList.remove(i);
 				 }
 			}
+			System.out.println("Edge zwischen" + v + " und " + w + " geloescht");
 			return true;
 		}
 		return false;
