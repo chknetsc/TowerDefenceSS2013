@@ -78,7 +78,6 @@ public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 					 this.edgeList.remove(i);
 				 }
 			}
-			System.out.println("Edge zwischen" + v + " und " + w + " geloescht");
 			return true;
 		}
 		return false;

@@ -39,7 +39,6 @@ public class DijkstraShortestPath<V> {
 		kl.add(s);
 		
 		while(!kl.isEmpty()) {
-			System.out.println("loop1");
 			V v = getMinDist(d, kl);
 			kl.remove(v);
 			
@@ -59,7 +58,6 @@ public class DijkstraShortestPath<V> {
 		
 		shortestpath.offerFirst(g);
 		while(shortestpath.getFirst() != s) {
-			System.out.println("loop2");
 			V next = p.get(shortestpath.getFirst());
 			if(next == null) {
 				shortestpath.clear();

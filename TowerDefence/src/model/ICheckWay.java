@@ -2,5 +2,8 @@ package model;
 
 public interface ICheckWay {
 
-	
+	public void initWayPoints(int sizeX, int sizeY);                     // Initialize the Graph with the Way
+	public boolean deleteWayPoint(int x, int y);                         // Deletes one Point on the List
+	public int getNumberofVertex(int x, int y);                          // Returns the Number of the Vertex
+	public boolean existWay(int startX, int endX, int startY, int endY); // Proof if there is a way
 }
