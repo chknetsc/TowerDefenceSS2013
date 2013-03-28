@@ -45,7 +45,7 @@ public class DijkstraShortestPath<V> {
 			for(V w : graph.getAdjacentVertexList(v)) {
 				if(d.get(w) < 0) {
 					kl.add(w);
-					d.put(w, d.get(v) + graph.getWeight(v,w));
+					d.put(w, d.get(v) + graph.getWeight(v,w)); 
 					p.put(w,v);
 					continue;
 				}

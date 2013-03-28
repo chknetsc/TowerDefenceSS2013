@@ -1,5 +1,8 @@
 package model.impl;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import model.ICheckWay;
 import model.IGraph;
 
@@ -10,7 +13,7 @@ public class CheckWay implements ICheckWay {
 	private int sizeX;
 	private int sizeY;
 
-	public CheckWay() {
+	public CheckWay() { 
 		this.g = new AdjacencyListUndirectedGraph<Integer>();
 		this.path = new DijkstraShortestPath<Integer>(this.g);
 	}
@@ -23,13 +26,16 @@ public class CheckWay implements ICheckWay {
 		// Add Fields to the List
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
 			  g.addVertex(i);
+			  System.out.println("Erzeuge Vertex " + i);
 		}
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
 		   if((i%sizeX) != 0) {
 			 g.addEdge(i,i+1);
+			 System.out.println("Erzeuge Edge zwischen " + i + " und " + (i+1));
 		   }
 		   if(i<=(sizeX*sizeY)-sizeX) {
-			 g.addEdge(i,i+4);
+			 g.addEdge(i,i+this.sizeX);
+			 System.out.println("Erzeuge Edge zwischen " + i + " und " + (i+this.sizeX));
 		   }
 		}
 	}
@@ -62,7 +68,22 @@ public class CheckWay implements ICheckWay {
 	public boolean existWay(int startX, int startY, int endX, int endY) {
 		int vertex1 = this.getNumberofVertex(startX, startY);
 		int vertex2 = this.getNumberofVertex(endX, endY);
+		System.out.println("Berechne von: " + vertex1 + " zu " + vertex2 + " die Strecke!");
 		return this.path.searchShortestPath(vertex1,vertex2);
+	}
+	
+	// Gets a List of Coords with the shortest way
+	public List<Coord> getShortesWay() {
+		List<Integer> l = this.path.getShortestPath();
+		List<Coord> c = new LinkedList<Coord>();
+		if(l != null) {
+			for(int i = 0; i<l.size(); i++) {
+				c.add(this.getCoordOfVertex(l.get(i)));
+				System.out.println(l.get(i));
+			}
+			return c;
+		}
+		return null;
 	}
 	
 }

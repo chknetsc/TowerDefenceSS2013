@@ -44,6 +44,7 @@ public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 					
 			edgeList.add(new Edge<V>(v,w));
 			edgeList.add(new Edge<V>(w,v));
+			
 			return true;
 		}
 		return false;				

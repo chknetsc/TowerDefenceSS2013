@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import model.impl.Coord;
 
 public interface ICheckWay {
@@ -9,4 +11,5 @@ public interface ICheckWay {
 	public int getNumberofVertex(int x, int y);                          // Returns the Number of the Vertex
 	public boolean existWay(int startX, int startY, int endX, int endY); // Proof if there is a way
 	public Coord getCoordOfVertex(int vertex);                           // Returns the Coord of the Vertex
+	public List<Coord> getShortesWay();                                  // Gets a List of Coords with the shortest way
 }
