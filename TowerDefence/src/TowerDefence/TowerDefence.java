@@ -75,5 +75,10 @@ public class TowerDefence {
 		for(int i = 0; i<l.size(); i++) {
 			System.out.println("Coord: ("+l.get(i).getX()+"/"+l.get(i).getY()+")");
 		}
+		
+		System.out.println(way.deleteWayPoint(0, 0));
+		System.out.println(way.deleteWayPoint(0, 0));
+		way.addWayPoint(0, 0);
+		way.addWayPoint(3, 2);
 	  }
 }

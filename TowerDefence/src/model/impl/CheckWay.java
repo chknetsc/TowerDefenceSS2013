@@ -45,6 +45,33 @@ public class CheckWay implements ICheckWay {
 		return this.g.deleteAllEdgeOn(this.getNumberofVertex(x, y));
 	}
 	
+	// Adds a wayPoint to the list
+	public boolean addWayPoint(int x, int y) {
+		int vertex = this.getNumberofVertex(x, y);
+		boolean check = false;
+		if((vertex%sizeX) != 0) {
+		   g.addEdge(vertex,vertex+1);
+		   System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex+1));
+		   check = true;
+		}
+		if(vertex<=(sizeX*sizeY)-sizeX) {
+		   g.addEdge(vertex,vertex+this.sizeX);
+		   System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex+this.sizeX));
+		   check = true;
+		}
+		if(vertex-this.sizeX > 0) {
+			g.addEdge(vertex,vertex-this.sizeX);
+			System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex-this.sizeX));
+			check = true;
+		}
+		if((vertex-1)%this.sizeX != 0) {
+			g.addEdge(vertex,vertex-1);
+			System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex-1));
+			check = true;
+		}
+		return check;
+	}
+	
 	// Returns the Number of the Vertex
 	public int getNumberofVertex(int x, int y) {
 		if(this.sizeX > x && this.sizeY > y) {

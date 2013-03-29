@@ -12,4 +12,5 @@ public interface ICheckWay {
 	public boolean existWay(int startX, int startY, int endX, int endY); // Proof if there is a way
 	public Coord getCoordOfVertex(int vertex);                           // Returns the Coord of the Vertex
 	public List<Coord> getShortesWay();                                  // Gets a List of Coords with the shortest way
+	public boolean addWayPoint(int x, int y); 	                         // Adds a wayPoint to the list
 }
