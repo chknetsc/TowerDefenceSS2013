@@ -53,10 +53,21 @@ public class TowerDefence {
 		//*/
 		
 		ICheckWay way = new CheckWay();
-		way.initWayPoints(5, 6);
+		way.initWayPoints(7, 6);
 		//System.out.println(way.getNumberofVertex(2, 1));
-		//System.out.println(way.deleteWayPoint(2, 2)); 
-		if (way.existWay(0, 0, 4, 4)){
+		System.out.println(way.deleteWayPoint(0, 1)); 
+		System.out.println(way.deleteWayPoint(1, 1));
+		System.out.println(way.deleteWayPoint(2, 1));
+		System.out.println(way.deleteWayPoint(3, 1));
+		System.out.println(way.deleteWayPoint(5, 0));
+		System.out.println(way.deleteWayPoint(5, 1));
+		System.out.println(way.deleteWayPoint(5, 2));
+		System.out.println(way.deleteWayPoint(5, 3));
+		System.out.println(way.deleteWayPoint(4, 3));
+		System.out.println(way.deleteWayPoint(3, 3));
+		System.out.println(way.deleteWayPoint(2, 3));
+		System.out.println(way.deleteWayPoint(1, 3));
+		if (way.existWay(0, 0, 6, 5)){
 			System.out.println("Weg gefunden");
 		}
 		System.out.println(way.getNumberofVertex(1, 1));
@@ -64,35 +75,5 @@ public class TowerDefence {
 		for(int i = 0; i<l.size(); i++) {
 			System.out.println("Coord: ("+l.get(i).getX()+"/"+l.get(i).getY()+")");
 		}
-		
-		
-		/*
-	   System.out.println(path.searchShortestPath(1, 16));
-	   List<Integer> l = path.getShortestPath();
-	   
-	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
-	   {
-	     System.out.println(i.next());
-	   }
-	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
-	   System.out.println(g.deleteAllEdgeOn(10));
-	   System.out.println(g.deleteAllEdgeOn(8));
-	   System.out.println(g.deleteAllEdgeOn(12));
-	   System.out.println(g.deleteAllEdgeOn(9));
-	   System.out.println(g.deleteAllEdgeOn(2));
-	   System.out.println("Number of Edges: "+g.getNumberOfEdges());
-	   System.out.println(path.searchShortestPath(1, 16));
-	   l = path.getShortestPath();
-	   
-	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
-	   {
-	     System.out.println(i.next());
-	   }
-	   l = g.getAdjacentVertexList(1);
-	   for ( Iterator<Integer> i = l.iterator(); i.hasNext(); )
-	   {
-	     System.out.println(i.next());
-	   }
-	   */	
 	  }
 }
