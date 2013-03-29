@@ -27,7 +27,6 @@ public class CoordTest extends TestCase {
 		assertEquals(false,c2.setX(-1));
 		assertEquals(false,c2.setY(-1));
 		assertEquals(1,c2.getX());
-		assertEquals(2,c2.getY());
-		
+		assertEquals(2,c2.getY());	
 	}
 }
