@@ -2,14 +2,8 @@ package model;
 
 import junit.framework.TestCase;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-
-import model.impl.Coord;
 import model.impl.Edge;
-import model.impl.Field;
-import model.impl.Mob;
-import model.impl.Tower;
+
 
 public class EdgeTest extends TestCase {
 	
