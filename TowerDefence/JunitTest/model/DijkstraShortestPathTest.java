@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.util.List;
 
 import model.impl.AdjacencyListUndirectedGraph;
 import model.impl.DijkstraShortestPath;
@@ -15,8 +16,8 @@ public class DijkstraShortestPathTest extends TestCase {
 	public void setUp() throws IOException {
 		this.g = new AdjacencyListUndirectedGraph<Integer>();
 		this.path = new DijkstraShortestPath<Integer>(this.g);
-		int sizeX = 10;
-		int sizeY = 10;
+		int sizeX = 7;
+		int sizeY = 6;
 		
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
 			  g.addVertex(i);
@@ -34,8 +35,24 @@ public class DijkstraShortestPathTest extends TestCase {
 	
 	public void testDoc() {
 		
-		assertEquals(true,this.path.searchShortestPath(1, 10));
+		assertEquals(true,this.path.searchShortestPath(1, 7));
 		assertEquals(false,this.path.searchShortestPath(1, 1));
+		assertEquals(true,this.path.searchAllShortestPaths(1));
+		assertEquals(10.0,this.path.getDistance());
+		assertEquals(6.0,this.path.getDistanceTo(7));
+		List<Integer> list = this.path.getShortestPath();
+		assertEquals(list,this.path.getShortestPath());
+		list = this.path.getShortestPathTo(7);
+		assertEquals(list,this.path.getShortestPathTo(7));
 		
+		g.deleteAllEdgeOn(8);
+		g.deleteAllEdgeOn(2);
+		
+		assertEquals(false,this.path.searchShortestPath(1, 7));
+		assertEquals(false,this.path.searchAllShortestPaths(1));
+		assertEquals(-1.0,this.path.getDistanceTo(7));
+		assertEquals(null,this.path.getShortestPath());
+		assertEquals(null,this.path.getShortestPath());
+		assertEquals(null,this.path.getShortestPathTo(7));
 	}
 }
