@@ -60,6 +60,15 @@ public class Field implements IField {
 		}
 		return false;
 	}
+	
+	// Deletes all Mobs on this Field
+	public boolean deleteAllMobs() {
+		if(!this.mobs.isEmpty()) {
+			this.mobs.clear();
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	// Returns a List of the Mobs on the Field

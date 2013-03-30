@@ -124,8 +124,8 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Moves the Mobs to the next Field
 	public boolean moveMobs() {
-		// TODO Auto-generated method stub
-		return false;
+		
+	return false;
 	}
 
 	@Override
