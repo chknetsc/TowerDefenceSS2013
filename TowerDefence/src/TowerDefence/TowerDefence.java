@@ -52,33 +52,30 @@ public class TowerDefence {
 		}
 		//*/
 		
-		ICheckWay way = new CheckWay();
-		way.initWayPoints(7, 6);
-		//System.out.println(way.getNumberofVertex(2, 1));
-		System.out.println(way.deleteWayPoint(0, 1)); 
-		System.out.println(way.deleteWayPoint(1, 1));
-		System.out.println(way.deleteWayPoint(2, 1));
-		System.out.println(way.deleteWayPoint(3, 1));
-		System.out.println(way.deleteWayPoint(5, 0));
-		System.out.println(way.deleteWayPoint(5, 1));
-		System.out.println(way.deleteWayPoint(5, 2));
-		System.out.println(way.deleteWayPoint(5, 3));
-		System.out.println(way.deleteWayPoint(4, 3));
-		System.out.println(way.deleteWayPoint(3, 3));
-		System.out.println(way.deleteWayPoint(2, 3));
-		System.out.println(way.deleteWayPoint(1, 3));
-		if (way.existWay(0, 0, 6, 5)){
-			System.out.println("Weg gefunden");
-		}
-		System.out.println(way.getNumberofVertex(1, 1));
-		List<Coord> l = way.getShortesWay();
-		for(int i = 0; i<l.size(); i++) {
-			System.out.println("Coord: ("+l.get(i).getX()+"/"+l.get(i).getY()+")");
-		}
+		// Spielfeld anlegen und testen.
+		//-------------------------------
 		
-		System.out.println(way.deleteWayPoint(0, 0));
-		System.out.println(way.deleteWayPoint(0, 0));
-		way.addWayPoint(0, 0);
-		way.addWayPoint(3, 2);
+		PlayingField field = new PlayingField(10,10);
+		System.out.println(field.drawPlayingField());
+		System.out.println(field.setTower(0, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(1, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(2, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(3, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(4, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(5, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(6, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(7, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(8, 1, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(9, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(1, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(2, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(3, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(4, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(5, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(6, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(7, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(8, 3, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.setTower(8, 2, new Tower(1,1,1,1,1.0)));
+		System.out.println(field.drawPlayingField()); 
 	  }
 }

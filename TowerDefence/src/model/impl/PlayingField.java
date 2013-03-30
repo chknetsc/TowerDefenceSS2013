@@ -6,9 +6,12 @@ import model.IPlayingField;
 
 public class PlayingField implements IPlayingField {
 	
-	private Field field[][];
-	private int sizeX;
-	private int sizeY;
+	private Field field[][];    // Field Array with the Towers and Mobs
+	private int sizeX;          // X Size of the Field Array
+	private int sizeY;          // Y Size of the Field Array
+	private Coord start;        // Start Coords of the Playingfield
+	private Coord end;          // End Coords of the Playingfield
+	private CheckWay way;       // CheckWay to proof the Way
 	
 	// Constructor with standard values
 	public PlayingField() {
@@ -32,7 +35,12 @@ public class PlayingField implements IPlayingField {
 	
 	// Initialize the PlayingField
 	private void init() {
+		this.start = new Coord(0,0);
+		this.end = new Coord(this.sizeX-1, this.sizeY-1);
+		this.way = new CheckWay();
+		this.way.initWayPoints(this.sizeX, this.sizeY);
 		this.field = new Field[sizeY][sizeX];
+		
 		for(int i=0; i<this.sizeY; i++) {
 			for(int j=0; j<this.sizeX; j++) {
 				this.field[i][j] = new Field();
@@ -53,7 +61,13 @@ public class PlayingField implements IPlayingField {
 		}
 		// Set the tower on the Playfield
 		if(x<this.getSizeX() && y<this.getSizeY()) {
-			return this.field[y][x].setTower(tower);
+			this.way.deleteWayPoint(x, y);
+			if(this.calculateWay()){
+			   return this.field[y][x].setTower(tower);
+			} else {
+			   this.way.addWayPoint(x, y);	
+			   return false;
+			}
 		}
 	    return false;
 	}
@@ -71,6 +85,7 @@ public class PlayingField implements IPlayingField {
 	// Deletes a tower on x,y and returns the tower
 	public Tower deleteTower(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
+			this.way.addWayPoint(x, y);
 		    return this.field[y][x].deleteTower();
 		}
 		return null;
@@ -116,8 +131,7 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Calculates the Way of the Mobs
 	public boolean calculateWay() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.way.existWay(start.getX(),start.getY(),end.getX(),end.getY());
 	}
 	
 	// Returns the X Size of the PlayingField
