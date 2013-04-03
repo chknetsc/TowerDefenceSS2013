@@ -1,8 +1,10 @@
-package model;
+package way;
 
 import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.List;
+
+import model.IUndirectedGraph;
 
 import way.impl.AdjacencyListUndirectedGraph;
 import way.impl.Edge;

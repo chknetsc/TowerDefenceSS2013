@@ -1,4 +1,4 @@
-package model;
+package way;
 
 import junit.framework.TestCase;
 import java.io.IOException;
