@@ -1,8 +1,9 @@
-package model.impl;
+package way.impl;
 
 import java.util.*;
 
-import model.IGraph;
+import way.IGraph;
+
 
 public class DijkstraShortestPath<V> {
 	

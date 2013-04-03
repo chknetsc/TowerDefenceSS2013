@@ -1,8 +1,11 @@
-package model;
+package way;
 
 import java.util.List;
 
-import model.impl.Edge;
+import way.impl.Edge;
+
+
+
 
 
 

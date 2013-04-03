@@ -1,8 +1,11 @@
-package model;
+package way;
 
 import java.util.List;
 
-import model.impl.Coord;
+import way.impl.Coord;
+
+
+
 
 public interface ICheckWay {
 

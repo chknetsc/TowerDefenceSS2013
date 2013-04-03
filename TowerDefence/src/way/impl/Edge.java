@@ -1,4 +1,4 @@
-package model.impl;
+package way.impl;
 
 public class Edge<V> {
 

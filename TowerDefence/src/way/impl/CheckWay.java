@@ -1,10 +1,11 @@
-package model.impl;
+package way.impl;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import model.ICheckWay;
-import model.IGraph;
+import way.ICheckWay;
+import way.IGraph;
+
 
 public class CheckWay implements ICheckWay {
 	

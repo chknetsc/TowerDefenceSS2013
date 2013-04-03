@@ -2,7 +2,10 @@ package model;
 
 import junit.framework.TestCase;
 import java.io.IOException;
-import model.impl.Coord;
+
+import way.impl.Coord;
+
+
 
 
 public class CoordTest extends TestCase {

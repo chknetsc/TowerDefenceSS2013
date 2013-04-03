@@ -3,8 +3,12 @@ package model;
 import java.io.IOException;
 import java.util.List;
 
-import model.impl.AdjacencyListUndirectedGraph;
-import model.impl.DijkstraShortestPath;
+import way.IGraph;
+import way.impl.AdjacencyListUndirectedGraph;
+import way.impl.DijkstraShortestPath;
+
+
+
 
 import junit.framework.TestCase;
 

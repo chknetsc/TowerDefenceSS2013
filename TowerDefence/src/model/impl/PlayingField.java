@@ -2,6 +2,10 @@ package model.impl;
 
 import java.util.List;
 
+import way.impl.CheckWay;
+import way.impl.Coord;
+
+
 import model.IPlayingField;
 
 public class PlayingField implements IPlayingField {

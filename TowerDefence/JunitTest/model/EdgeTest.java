@@ -2,7 +2,10 @@ package model;
 
 import junit.framework.TestCase;
 import java.io.IOException;
-import model.impl.Edge;
+
+import way.impl.Edge;
+
+
 
 
 public class EdgeTest extends TestCase {
