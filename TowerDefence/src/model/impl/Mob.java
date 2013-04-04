@@ -5,7 +5,8 @@ import model.IMob;
 public class Mob implements IMob {
 	
 	private int live;			// Gesundheit des Mobs
-	private int speed; 			// Bewegunstempo des Mobs
+	private int speed; 			// Time that mob must wait on Field
+	private int speed_tmp;		// Mainspeed
 	
 	// Konstruktor
 	public Mob() {
@@ -17,11 +18,6 @@ public class Mob implements IMob {
 	public int getLive() {
 		return live;
 	}
-	
-	
-    /* Deine Set Methoden können auch negative werte annehmen
-     * des müsstest du noch verbessern.
-     * könnte sonst noch zu problemen komnmen*/
 	
 	
 	public void setLive(int health) {
@@ -37,8 +33,9 @@ public class Mob implements IMob {
 		this.speed = speed;
 	}
 	
+	
 	// Dem Mob schaden abziehen
-	public int addDamage(int damage) {
+	public int getDamage(int damage) {
 		setLive(this.live-damage);		// Zieht übergebenene Damage von aktuellen Leben ab 
 		return this.live;				// Giebt übrige Leben zurück
 	}
@@ -50,6 +47,29 @@ public class Mob implements IMob {
 		} 
 		else {
 			return false;				// False wenn Mob noch lebt
+		}
+	}
+	
+	// Macht das gleiche wie Mehoden oben nur zusammen
+	public boolean mobDamageAndLive(int damage) {
+		this.live -= damage;			// Zieht übergebenene Damage von aktuellen Leben ab
+		if(this.live <= 0) {
+			return true;						// True falls Mob tot ist
+		}
+		else {
+			return false;						// False wenn Mob noch lebt
+		}
+	}
+	
+	// Decrease Speed and return true if Mob can walk 
+	public boolean decreaseSpeedAndWalk() {
+		this.speed -= 1;					
+		if(this.speed <= 0) {				// Check if Speed is Zero
+			this.speed = this.speed_tmp;
+			return true;					// True if Mob can walk on new Field
+		}
+		else {
+			return false;					// False if Mob needs more Time
 		}
 	}
 }

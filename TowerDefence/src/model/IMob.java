@@ -13,9 +13,15 @@ public interface IMob {
 	public void setSpeed(int speed);
 
 	// Dem Mob schaden abziehen
-	public int addDamage(int damage);
+	public int getDamage(int damage);
 
 	// Prüft ob Mob tot ist
 	public boolean mobDead();
+	
+	// Macht das gleiche wie Mehoden oben nur zusammen
+	public boolean mobDamageAndLive(int damage);
+	
+	// Decrease Speed and return true if Mob can walk 
+	public boolean decreaseSpeedAndWalk();
 
 }

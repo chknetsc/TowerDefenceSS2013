@@ -13,21 +13,21 @@ public class FastMob extends Mob {
 	// Set the Attributs of the Mob to the given Level
 	private void intiMob(int level) {
 		setName("FastMob");						// Set MobName
-		setLevel(level);							// Set Level
+		setLevel(level);						// Set Level
 		
 		switch(level) {								// Set Live and Speed to the spezific Level
 		
 			case 1:				// Level 1
 				setLive(10);
-				setSpeed(1);
+				setSpeed(6);
 				break;
 			case 2:				// Level 2
 				setLive(30);
-				setSpeed(1);
+				setSpeed(5);
 				break;
 			case 3:				// Level 3
 				setLive(50);
-				setSpeed(2);
+				setSpeed(4);
 				break;
 			case 4:				// Level 4
 				setLive(60);
@@ -35,11 +35,11 @@ public class FastMob extends Mob {
 				break;
 			case 5:				// Level 5
 				setLive(60);
-				setSpeed(5);
+				setSpeed(2);
 				break;
 			default:			// Over Level 5
 				setLive(80);
-				setSpeed(6);
+				setSpeed(1);
 		}
 	}
 

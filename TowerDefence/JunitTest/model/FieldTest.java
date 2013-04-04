@@ -68,7 +68,7 @@ public class FieldTest extends TestCase {
 		
 		assertEquals(3,field.getNumberOfMobs());
 		assertEquals(false,field.deleteDeadMobs());
-		this.mob2.addDamage(300);
+		this.mob2.getDamage(300);
 		System.out.println(this.mob2.getLive());
 		assertEquals(true,field.deleteDeadMobs());
 		

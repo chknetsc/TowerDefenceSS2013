@@ -25,7 +25,7 @@ IMob mob;
 		assertEquals(2, mob.getSpeed());
 		
 		// addDamage
-		assertEquals(5, mob.addDamage(5));
+		assertEquals(5, mob.getDamage(5));
 		
 		// mobDead
 		assertEquals(false, mob.mobDead());
