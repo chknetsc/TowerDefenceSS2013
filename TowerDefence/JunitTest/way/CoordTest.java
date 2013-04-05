@@ -3,7 +3,8 @@ package way;
 import junit.framework.TestCase;
 import java.io.IOException;
 
-import way.impl.Coord;
+import model.way.impl.Coord;
+
 
 
 

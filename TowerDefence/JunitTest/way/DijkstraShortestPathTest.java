@@ -3,9 +3,10 @@ package way;
 import java.io.IOException;
 import java.util.List;
 
-import way.IGraph;
-import way.impl.AdjacencyListUndirectedGraph;
-import way.impl.DijkstraShortestPath;
+import model.way.IGraph;
+import model.way.impl.AdjacencyListUndirectedGraph;
+import model.way.impl.DijkstraShortestPath;
+
 
 
 

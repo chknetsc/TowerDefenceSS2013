@@ -1,4 +1,4 @@
-package way.impl;
+package model.way.impl;
 
 import java.util.HashMap;
 import java.util.Iterator;

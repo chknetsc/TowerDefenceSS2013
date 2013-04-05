@@ -1,4 +1,4 @@
-package way.impl;
+package model.way.impl;
 
 public class Coord {
      private int x;

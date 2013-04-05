@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.List;
 
 import model.IUndirectedGraph;
+import model.way.impl.AdjacencyListUndirectedGraph;
+import model.way.impl.Edge;
 
-import way.impl.AdjacencyListUndirectedGraph;
-import way.impl.Edge;
 
 
 

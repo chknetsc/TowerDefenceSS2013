@@ -2,11 +2,11 @@ package model.impl;
 
 import java.util.List;
 
-import way.impl.CheckWay;
-import way.impl.Coord;
 
 
 import model.IPlayingField;
+import model.way.impl.CheckWay;
+import model.way.impl.Coord;
 
 public class PlayingField implements IPlayingField {
 	
