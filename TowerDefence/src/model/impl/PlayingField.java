@@ -4,7 +4,9 @@ import java.util.List;
 
 
 
+import model.IMob;
 import model.IPlayingField;
+import model.ITower;
 import model.way.impl.CheckWay;
 import model.way.impl.Coord;
 
@@ -54,7 +56,7 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Place a Tower on the Playingfield at x,y
-	public boolean setTower(int x, int y, Tower tower) {
+	public boolean setTower(int x, int y, ITower tower) {
 		// Search for the same Tower on the PlayField
 		for(int i=0; i<this.sizeX; i++) {
 			for(int j=0; j<this.sizeY; j++) {
@@ -78,7 +80,7 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Returns the Tower from x,y at the Playingfield
-	public Tower getTower(int x, int y) {
+	public ITower getTower(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 		    return this.field[y][x].getTower();
 		}
@@ -87,7 +89,7 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Deletes a tower on x,y and returns the tower
-	public Tower deleteTower(int x, int y) {
+	public ITower deleteTower(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 			this.way.addWayPoint(x, y);
 		    return this.field[y][x].deleteTower();
@@ -97,12 +99,12 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Place a Mob on the Playingfield at x,y
-	public boolean setMob(int x, int y, Mob mob) {
+	public boolean setMob(int x, int y, IMob mob) {
 		// Search for the same Mob on the PlayField
 		for(int i=0; i<this.sizeX; i++) {
 			for(int j=0; j<this.sizeY; j++) {
 				if(this.field[j][i].getNumberOfMobs() != 0) {
-					List<Mob> m = this.field[j][i].getMobs();
+					List<IMob> m = this.field[j][i].getMobs();
 					if(m.contains(mob)){
 						return false;
 					}
@@ -118,7 +120,7 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Returns the Mobs from x,y at the Playingfield
-	public List<Mob> getMob(int x, int y) {
+	public List<IMob> getMob(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 		    return this.field[y][x].getMobs();
 		}
