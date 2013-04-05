@@ -15,6 +15,7 @@ public class GameController implements IGameController {
 	ITower tower;
 	IMob mob;
 	IPlayingField playingField;
+	ITower tower2;
 	
 	public GameController() {
 		// TODO Später eigene Funktion anlegen um Größe zu bestimmen
@@ -39,12 +40,7 @@ public class GameController implements IGameController {
 	public int fetchSizeX() {
 		return playingField.getSizeX();	
 	}
-	
-
-	public int fetchSizeY() {
-		return playingField.getSizeX();	
-	}
-	
+		
 
 	public String fetchPlayingField() {
 		return playingField.drawPlayingField();	

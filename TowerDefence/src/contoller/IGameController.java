@@ -8,7 +8,6 @@ public interface IGameController {
 
 	public int fetchSizeX();
 
-	public int fetchSizeY();
 
 	public String fetchPlayingField();
 	
