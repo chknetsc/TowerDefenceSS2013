@@ -1,6 +1,6 @@
 package textUI;
 
-import contoller.IGameController;
+import controller.IGameController;
 
 
 // Text based UI 

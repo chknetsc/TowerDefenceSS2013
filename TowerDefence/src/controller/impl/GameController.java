@@ -1,6 +1,6 @@
 package controller.impl;
 
-import contoller.IGameController;
+import controller.IGameController;
 import model.IMob;
 import model.IPlayingField;
 import model.ITower;

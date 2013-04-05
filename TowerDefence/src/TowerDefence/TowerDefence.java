@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-import contoller.IGameController;
+import controller.IGameController;
 import controller.impl.GameController;
 
 import textUI.Tui;
