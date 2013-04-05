@@ -3,7 +3,8 @@ package way;
 import junit.framework.TestCase;
 import java.io.IOException;
 
-import model.way.impl.Edge;
+import util.Edge;
+
 
 
 

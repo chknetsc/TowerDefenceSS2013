@@ -2,7 +2,8 @@ package model.way;
 
 import java.util.List;
 
-import model.way.impl.Coord;
+import util.Coord;
+
 
 
 

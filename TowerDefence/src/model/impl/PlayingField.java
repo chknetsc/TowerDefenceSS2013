@@ -2,13 +2,14 @@ package model.impl;
 
 import java.util.List;
 
+import util.Coord;
+
 
 
 import model.IMob;
 import model.IPlayingField;
 import model.ITower;
 import model.way.impl.CheckWay;
-import model.way.impl.Coord;
 
 public class PlayingField implements IPlayingField {
 	

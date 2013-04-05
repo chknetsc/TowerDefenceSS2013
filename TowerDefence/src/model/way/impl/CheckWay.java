@@ -3,6 +3,8 @@ package model.way.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import util.Coord;
+
 import model.way.ICheckWay;
 import model.way.IGraph;
 

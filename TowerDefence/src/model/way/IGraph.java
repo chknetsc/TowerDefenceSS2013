@@ -2,7 +2,8 @@ package model.way;
 
 import java.util.List;
 
-import model.way.impl.Edge;
+import util.Edge;
+
 
 
 

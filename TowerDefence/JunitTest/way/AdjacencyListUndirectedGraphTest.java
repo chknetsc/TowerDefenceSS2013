@@ -4,9 +4,10 @@ import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.List;
 
-import model.IUndirectedGraph;
+import util.Edge;
+
+import model.way.IUndirectedGraph;
 import model.way.impl.AdjacencyListUndirectedGraph;
-import model.way.impl.Edge;
 
 
 

@@ -8,7 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import model.IUndirectedGraph;
+import util.Edge;
+
+import model.way.IUndirectedGraph;
 
 public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 
@@ -69,13 +71,13 @@ public class AdjacencyListUndirectedGraph<V> implements IUndirectedGraph<V>{
 			
 			for(int i = 0; i < this.getNumberOfEdges(); i++) {
 				Edge<V> e = this.edgeList.get(i);
-				 if(e.source == v && e.target == w) {
+				 if(e.getSource() == v && e.getTarget() == w) {
 					 this.edgeList.remove(i);
 				 }
 			}
 			for(int i = 0; i < this.getNumberOfEdges(); i++) {
 				Edge<V> e = this.edgeList.get(i);
-				 if(e.source == w && e.target == v) {
+				 if(e.getSource() == w && e.getTarget() == v) {
 					 this.edgeList.remove(i);
 				 }
 			}

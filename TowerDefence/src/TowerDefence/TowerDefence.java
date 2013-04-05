@@ -9,13 +9,13 @@ import controller.IGameController;
 import controller.impl.GameController;
 
 import textUI.Tui;
+import util.Coord;
 
 import model.impl.Mob;
 import model.impl.PlayingField;
 import model.impl.Tower;
 import model.way.ICheckWay;
 import model.way.impl.CheckWay;
-import model.way.impl.Coord;
 
 public class TowerDefence {
 	public static void main( String[] args )
