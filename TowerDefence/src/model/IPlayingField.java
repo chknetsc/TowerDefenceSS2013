@@ -2,9 +2,6 @@ package model;
 
 import java.util.List;
 
-import model.impl.Mob;
-import model.impl.Tower;
-
 public interface IPlayingField {
 	
     public void initPlayingField(int sizeX, int sizeY);  // Function to Initialize the PlayingField later
