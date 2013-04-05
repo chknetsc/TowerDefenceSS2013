@@ -61,7 +61,7 @@ public class FieldTest extends TestCase {
 		assertEquals(true,field.setMob(mob3));
 		
 		
-		List<Mob> m = this.field.getMobs();
+		List<IMob> m = this.field.getMobs();
 		for(int i = 0; i<m.size(); i++) {
 			System.out.println(m.get(i).getLive());
 		}
