@@ -10,17 +10,15 @@ public class Field {
 	
 	private ITower tower;
 	private List<IMob> mobs;
-	private int NumberMobs;
 	
 	public Field() {
 		this.tower = null;
 		this.mobs = new LinkedList<IMob>();
-		this.NumberMobs = 0;
 	}
 
 	// Place one Tower on the Field
 	public boolean setTower(ITower tower) {
-		if(!this.isSetTower() && this.NumberMobs == 0) {
+		if(!this.isSetTower() && this.getNumberOfMobs() == 0) {
 			this.tower = tower;
 			return true;
 		} 
@@ -51,10 +49,36 @@ public class Field {
 	public boolean setMob(IMob mob) {
 		if(!this.isSetTower()) {
 			this.mobs.add(mob);
-			this.NumberMobs++;
 			return true;
 		}
 		return false;
+	}
+	
+	// Adds a List to the List of Mobs
+	public boolean setListMob(List<IMob> mobs) {
+		return this.mobs.addAll(mobs);
+	}
+
+	// Returns a List of all the Mobs on the Field
+	public List<IMob> getMobs() {
+		List<IMob> mobs = new LinkedList<IMob>(this.mobs);
+		return mobs;
+	}
+	
+	// Returns a list with Mobs where Speed = 0
+	// Hier noch weiter Programmieren und ueberlegen wie man es machen soll
+	public List<IMob> getReadyMobs() {
+		List<IMob> m = new LinkedList<IMob>();
+		for(int i = 0; i<this.mobs.size(); i++) {
+			
+		}
+		return null;
+	}
+	
+	
+	// Returns the Number of Mobs
+	public int getNumberOfMobs() {
+		return this.mobs.size();
 	}
 	
 	// Deletes all Mobs on this Field
@@ -65,24 +89,13 @@ public class Field {
 		}
 		return false;
 	}
-
-	// Returns a List of the Mobs on the Field
-	public List<IMob> getMobs() {
-		List<IMob> mobs = new LinkedList<IMob>(this.mobs);
-		return mobs;
-	}
 	
-	// Returns the Number of Mobs
-	public int getNumberOfMobs() {
-		return this.NumberMobs;
-	}
-	
-	// Deletes all Mobs from the list where Damage < 0
+	// Deletes all Mobs from the list where Damage <= 0
 	public boolean deleteDeadMobs() {
 		boolean del = false;
 		for(int i = 0; i<this.mobs.size(); i++) {
 			IMob m = this.mobs.get(i);
-			if(m.getLive() < 0) {
+			if(m.getLive() <= 0) {
 				this.mobs.remove(i);
 				del = true;
 			}

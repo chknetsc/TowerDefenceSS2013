@@ -8,7 +8,7 @@ public class Tower implements ITower {
 	private int range;        // Range of shooting
 	private int speed;        // Speed of Shooting
 	private int speed_tmp;    // Time to the Next shoot
-	private int numberShoot;  // Numper of Shoots each round
+	private int numberShoot;  // Number of Shoots each round
 	private double hitrate;   // Hitrate of the Tower
 	
 	// Set the Tower to the Values
