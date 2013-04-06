@@ -60,7 +60,7 @@ public class Tower implements ITower {
 	}
 
 	@Override
-	// Set the Speet of the Tower
+	// Set the Speed of the Tower
 	public boolean setSpeed(int speed) {
 		if ( speed > 0 ) {
 			this.speed = speed;
@@ -99,6 +99,17 @@ public class Tower implements ITower {
 	// Returns the Numer of Shoot
 	public int getNumberOfShoot() {
 		return this.numberShoot;
+	}
+	
+	@Override
+	// Returns true when the Tower can shoot
+	public boolean shoot() {
+		this.speed_tmp--;					
+		if(this.speed_tmp <= 0) {
+			this.speed_tmp = this.speed;
+			return true;
+		}
+		return false;
 	}
 	
 	@Override

@@ -12,5 +12,6 @@ public interface ITower {
      public boolean setSpeed(int speed);          // Set the Speed of the Tower
      public int calcDamage();                     // Calc the Damage of one shoot
      public boolean setNumberOfShoot(int shoot);  // Set the Number of Shoot 
-     public int getNumberOfShoot();               // Returns the Numer of Shoot
+     public int getNumberOfShoot();               // Returns the Number of Shoot
+     public boolean shoot();                      // Returns true when the Tower can shoot
 }
