@@ -66,13 +66,17 @@ public class Field {
 	}
 	
 	// Returns a list with Mobs where Speed = 0
-	// Hier noch weiter Programmieren und ueberlegen wie man es machen soll
+	// All these Mobs on the Field where deleted
 	public List<IMob> getReadyMobs() {
 		List<IMob> m = new LinkedList<IMob>();
 		for(int i = 0; i<this.mobs.size(); i++) {
-			
+			if(this.mobs.get(i).decreaseSpeedAndWalk()) {
+				m.add(this.mobs.get(i));
+			}
 		}
-		return null;
+		// Removes all the Mobs where walked
+		this.mobs.removeAll(m);
+		return m;
 	}
 	
 	
