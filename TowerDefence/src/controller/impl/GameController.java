@@ -1,64 +1,26 @@
 package controller.impl;
 
+import model.way.impl.CheckWay;
+import util.Coord;
 import controller.IGameController;
-import model.IMob;
-import model.IPlayingField;
-import model.ITower;
-import model.impl.Mob;
-import model.impl.PlayingField;
-import model.impl.Tower;
 
-// Handle the total GameLogic
 public class GameController implements IGameController {
 	
-	// Alle Interfaces auführen mit dennen der Controller arbeiten muss
-	ITower tower;
-	IMob mob;
-	IPlayingField playingField;
-	ITower tower2;
+	private Coord start;        // Start Coords of the Playingfield
+	private Coord end;          // End Coords of the Playingfield
+	private CheckWay way;       // CheckWay to proof the Way
 	
 	public GameController() {
-		// TODO Später eigene Funktion anlegen um Größe zu bestimmen
-		playingField = new PlayingField(10,10);
-	}
-	
-	//----------------------- Mehoden zum Testen der Klassen (Protoypten) ---------------------------
-	
-
-	public void createAndSetTower(int xPosition, int yPosition) {
-		tower = new Tower(1,1,1,1,1.0);
-		playingField.setTower(xPosition, yPosition, (Tower) tower);
-	}
-	
-
-	public void createAndSetMob(int xPosition, int yPosition) {
-		mob = new Mob();
-		playingField.setMob(xPosition, yPosition, (Mob) mob);
-	}
-	
-
-	public int fetchSizeX() {
-		return playingField.getSizeX();	
-	}
 		
-
-	public String fetchPlayingField() {
-		return playingField.drawPlayingField();	
 	}
 	
-	
-	
-	
-	// Set the Size of the PlayingField to Small, Middle, Big
-	public void setSizeofPlayingField(int groese) {
-		if(1 == groese) {
-			playingField.initPlayingField(20, 20);
-		}
-		else if(2 == groese) {
-			playingField.initPlayingField(50, 50);
-		}
-		else {
-			playingField.initPlayingField(100, 100);
-		}
-	}
+	/*
+	    this.start = new Coord(0,0);
+		this.end = new Coord(this.sizeX-1, this.sizeY-1);
+		this.way = new CheckWay();
+		this.way.initWayPoints(this.sizeX, this.sizeY);
+	 * 
+	 * 
+	 * 
+	 */
 }

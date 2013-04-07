@@ -116,5 +116,4 @@ public class CheckWay implements ICheckWay {
 		}
 		return null;
 	}
-	
 }

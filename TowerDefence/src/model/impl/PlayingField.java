@@ -1,24 +1,15 @@
 package model.impl;
 
 import java.util.List;
-
-import util.Coord;
-
-
-
 import model.IMob;
 import model.IPlayingField;
 import model.ITower;
-import model.way.impl.CheckWay;
 
 public class PlayingField implements IPlayingField {
 	
 	private Field field[][];    // Field Array with the Towers and Mobs
 	private int sizeX;          // X Size of the Field Array
 	private int sizeY;          // Y Size of the Field Array
-	private Coord start;        // Start Coords of the Playingfield
-	private Coord end;          // End Coords of the Playingfield
-	private CheckWay way;       // CheckWay to proof the Way
 	
 	// Constructor with standard values
 	public PlayingField() {
@@ -42,12 +33,7 @@ public class PlayingField implements IPlayingField {
 	
 	// Initialize the PlayingField
 	private void init() {
-		this.start = new Coord(0,0);
-		this.end = new Coord(this.sizeX-1, this.sizeY-1);
-		this.way = new CheckWay();
-		this.way.initWayPoints(this.sizeX, this.sizeY);
 		this.field = new Field[sizeY][sizeX];
-		
 		for(int i=0; i<this.sizeY; i++) {
 			for(int j=0; j<this.sizeX; j++) {
 				this.field[i][j] = new Field();
@@ -68,13 +54,7 @@ public class PlayingField implements IPlayingField {
 		}
 		// Set the tower on the Playfield
 		if(x<this.getSizeX() && y<this.getSizeY()) {
-			this.way.deleteWayPoint(x, y);
-			if(this.calculateWay()){
 			   return this.field[y][x].setTower(tower);
-			} else {
-			   this.way.addWayPoint(x, y);	
-			   return false;
-			}
 		}
 	    return false;
 	}
@@ -92,10 +72,15 @@ public class PlayingField implements IPlayingField {
 	// Deletes a tower on x,y and returns the tower
 	public ITower deleteTower(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
-			this.way.addWayPoint(x, y);
 		    return this.field[y][x].deleteTower();
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean isSetTower(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -121,26 +106,48 @@ public class PlayingField implements IPlayingField {
 
 	@Override
 	// Returns the Mobs from x,y at the Playingfield
-	public List<IMob> getMob(int x, int y) {
+	public List<IMob> getMobs(int x, int y) {
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 		    return this.field[y][x].getMobs();
 		}
 		return null;
 	}
-
-	@Override
-	// Moves the Mobs to the next Field
-	public boolean moveMobs() {
-		
-	return false;
-	}
-
-	@Override
-	// Calculates the Way of the Mobs
-	public boolean calculateWay() {
-		return this.way.existWay(start.getX(),start.getY(),end.getX(),end.getY());
-	}
 	
+	@Override
+	// Adds a List to the Field of Mobs
+	public boolean setListMob(int x, int y, List<IMob> mobs) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	// Returns a list with Mobs where Speed = 0
+	public List<IMob> getReadyMobs(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	// Returns the Number of Mobs
+	public int getNumberOfMobs(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	// Deletes all Mobs on this Field
+	public boolean deleteAllMobs(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	// Deletes all Mobs from the list where Damage <= 0
+	public boolean deleteDeadMobs(int x, int y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	// Returns the X Size of the PlayingField
 	public int getSizeX() {
         return this.sizeX;
@@ -149,6 +156,13 @@ public class PlayingField implements IPlayingField {
 	// Returns the y Size of the PlayingField
 	public int getSizeY() {
 		return this.sizeY;
+	}
+	
+	@Override
+	// Returns what is on the Field 0-> nothing 1-> tower 2->mob
+	public int getTypeOf(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	// Returns a String of the PlayingField 
