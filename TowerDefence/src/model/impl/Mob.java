@@ -31,6 +31,7 @@ public class Mob implements IMob {
 	
 	public void setSpeed(int speed) {
 		this.speed = speed;
+		this.speed_tmp = speed;
 	}
 	
 	

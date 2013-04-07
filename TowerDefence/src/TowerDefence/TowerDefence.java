@@ -1,6 +1,7 @@
 package TowerDefence;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +12,8 @@ import controller.impl.GameController;
 import textUI.Tui;
 import util.Coord;
 
+import model.IMob;
+import model.impl.Field;
 import model.impl.Mob;
 import model.impl.PlayingField;
 import model.impl.Tower;
@@ -42,27 +45,50 @@ public class TowerDefence {
 		// Spielfeld anlegen und testen.
 		//-------------------------------
 		
-		PlayingField field = new PlayingField(40,50);
-		System.out.println(field.drawPlayingField());
-		System.out.println(field.setTower(0, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(1, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(2, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(3, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(4, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(5, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(6, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(7, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(8, 1, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(9, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(1, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(2, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(3, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(4, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(5, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(6, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(7, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(8, 3, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.setTower(8, 2, new Tower(1,1,1,1,1.0)));
-		System.out.println(field.drawPlayingField()); 
+		Field f = new Field();
+		List<IMob> m = new LinkedList<IMob>();
+		IMob mob;
+		List<IMob> im;
+		
+		mob = new Mob();
+		mob.setLive(100);
+		mob.setSpeed(3);
+		m.add(mob);
+		mob = new Mob();
+		mob.setLive(99);
+		mob.setSpeed(3);
+		m.add(mob);
+		mob = new Mob();
+		mob.setLive(98);
+		mob.setSpeed(1);
+		m.add(mob);
+		mob = new Mob();
+		mob.setLive(97);
+		mob.setSpeed(10);
+		m.add(mob);
+		
+		for(int i = 0; i<m.size(); i++) {
+			System.out.println("Mob " + i);
+			System.out.println("Live: " + m.get(i).getLive());
+			System.out.println("Speed: " + m.get(i).getSpeed() + "\n");
+		}
+		System.out.println("--------------------");
+		f.setListMob(m);
+		im = f.getReadyMobs();
+		
+		
+		for(int i = 0; i<im.size(); i++) {
+			System.out.println("Mob " + i);
+			System.out.println("Live: " + im.get(i).getLive());
+			System.out.println("Speed: " + im.get(i).getSpeed() + "\n");
+		}
+		System.out.println("--------------------");
+		im = f.getMobs();
+		for(int i = 0; i<im.size(); i++) {
+			System.out.println("Mob " + i);
+			System.out.println("Live: " + im.get(i).getLive());
+			System.out.println("Speed: " + im.get(i).getSpeed() + "\n");
+		}
+		System.out.println("--------------------");
 	  }
 }
