@@ -12,10 +12,10 @@ import model.impl.Tower;
 public class FieldTest extends TestCase {
 	
 	Field field;
-	Tower tower;
-	Mob mob;
-	Mob mob2;
-	Mob mob3;
+	ITower tower;
+	IMob mob;
+	IMob mob2;
+	IMob mob3;
 	
 	public void setUp() throws IOException {
 		field = new Field();

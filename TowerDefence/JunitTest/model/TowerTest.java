@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 
 public class TowerTest extends TestCase {
 	
-	Tower tower;
+	ITower tower;
 	
 	public void setUp() throws IOException {
 		tower = new Tower(1, 1, 1, 1, 1.0);
