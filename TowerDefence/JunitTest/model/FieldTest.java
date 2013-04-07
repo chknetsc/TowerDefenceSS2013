@@ -60,22 +60,31 @@ public class FieldTest extends TestCase {
 		assertEquals(true,field.setMob(mob2));
 		assertEquals(true,field.setMob(mob3));
 		
+		//Set List Mobs
+		List<IMob> m = new LinkedList<IMob>();
+		this.mob.setLive(100);
+		this.mob.setSpeed(3);
+		this.mob2.setLive(100);
+		this.mob2.setSpeed(6);
+		this.mob3.setLive(100);
+		this.mob3.setSpeed(6);
+		m.add(this.mob);
+		m.add(this.mob2);
+		m.add(this.mob3);
+		assertEquals(true,field.setListMob(m));
+		List<IMob> ready = new LinkedList<IMob>();
+		assertEquals(ready,field.getReadyMobs());
+		ready.add(mob);
+		assertEquals(ready,field.getReadyMobs());
 		
-		List<IMob> m = this.field.getMobs();
-		for(int i = 0; i<m.size(); i++) {
-			System.out.println(m.get(i).getLive());
-		}
-		
-		assertEquals(3,field.getNumberOfMobs());
+		// Delete dead mobs
+		this.mob2.getDamage(50);
 		assertEquals(false,field.deleteDeadMobs());
-		this.mob2.getDamage(300);
-		System.out.println(this.mob2.getLive());
+		this.mob2.getDamage(100);
 		assertEquals(true,field.deleteDeadMobs());
 		
-		m = this.field.getMobs();
-		for(int i = 0; i<m.size(); i++) {
-			System.out.println(m.get(i).getLive());
-		}
-		
+		// Delete all mobs
+		assertEquals(true,field.deleteAllMobs());
+		assertEquals(false,field.deleteAllMobs());
 	}
 }

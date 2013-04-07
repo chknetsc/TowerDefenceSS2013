@@ -51,5 +51,12 @@ public class TowerTest extends TestCase {
 		
 		// Randomwert erzeugen
 		assertEquals(1.0,tower.random(1.0, 1.0));
+		
+		// Shoot
+		tower.setSpeed(2);
+		System.out.println(tower.getSpeed());
+		assertEquals(false,tower.shoot());
+		System.out.println(tower.getSpeed());
+		assertEquals(true,tower.shoot());
 	}
 }

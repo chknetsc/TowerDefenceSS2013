@@ -64,7 +64,7 @@ public class Mob implements IMob {
 	
 	// Decrease Speed and return true if Mob can walk 
 	public boolean decreaseSpeedAndWalk() {
-		this.speed -= 1;					
+		this.speed--;					
 		if(this.speed <= 0) {				// Check if Speed is Zero
 			this.speed = this.speed_tmp;
 			return true;					// True if Mob can walk on new Field

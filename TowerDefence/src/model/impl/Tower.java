@@ -18,7 +18,6 @@ public class Tower implements ITower {
 		this.setSpeed(speed);                // Set Speed to Value
 		this.setHitRate(hitrate);            // Set Hitrate to Value
 		this.setNumberOfShoot(numberShoot);  // Set number of shoot to Value
-		this.speed_tmp = this.speed;         // Init with the Speed
 	}
 	
 	@Override
@@ -64,6 +63,7 @@ public class Tower implements ITower {
 	public boolean setSpeed(int speed) {
 		if ( speed > 0 ) {
 			this.speed = speed;
+			this.speed_tmp = this.speed;
 			return true;
 		}
 	return false;
