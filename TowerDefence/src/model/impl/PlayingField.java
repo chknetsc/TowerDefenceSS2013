@@ -78,9 +78,9 @@ public class PlayingField implements IPlayingField {
 	}
 	
 	@Override
+	// Checks if a tower is set
 	public boolean isSetTower(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.field[y][x].isSetTower();
 	}
 
 	@Override
@@ -116,36 +116,31 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Adds a List to the Field of Mobs
 	public boolean setListMob(int x, int y, List<IMob> mobs) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.field[y][x].setListMob(mobs);
 	}
 
 	@Override
 	// Returns a list with Mobs where Speed = 0
 	public List<IMob> getReadyMobs(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.field[y][x].getReadyMobs();
 	}
 
 	@Override
 	// Returns the Number of Mobs
 	public int getNumberOfMobs(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field[y][x].getNumberOfMobs();
 	}
 
 	@Override
 	// Deletes all Mobs on this Field
 	public boolean deleteAllMobs(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.field[y][x].deleteAllMobs();
 	}
 
 	@Override
 	// Deletes all Mobs from the list where Damage <= 0
 	public boolean deleteDeadMobs(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.field[y][x].deleteDeadMobs();
 	}
 
 	// Returns the X Size of the PlayingField
@@ -161,8 +156,7 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Returns what is on the Field 0-> nothing 1-> tower 2->mob
 	public int getTypeOf(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field[y][x].getTypeOf();
 	}
 	
 	// Returns a String of the PlayingField 
