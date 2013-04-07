@@ -1,4 +1,4 @@
-package way;
+package model.way.impl;
 
 import java.io.IOException;
 import java.util.List;

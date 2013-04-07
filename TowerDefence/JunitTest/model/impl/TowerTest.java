@@ -1,7 +1,8 @@
-package model;
+package model.impl;
 
 import java.io.IOException;
 
+import model.ITower;
 import model.impl.Tower;
 
 import junit.framework.TestCase;

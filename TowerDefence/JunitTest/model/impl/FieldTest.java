@@ -1,10 +1,12 @@
-package model;
+package model.impl;
 
 import junit.framework.TestCase;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.IMob;
+import model.ITower;
 import model.impl.Field;
 import model.impl.Mob;
 import model.impl.Tower;
@@ -38,7 +40,7 @@ public class FieldTest extends TestCase {
 		assertEquals(1,field.getTypeOf());
 		
 		//get mob
-		List<Mob> list = new LinkedList<Mob>();
+		List<IMob> list = new LinkedList<IMob>();
 		assertEquals(list,field.getMobs());
 		
 		//SetMob
