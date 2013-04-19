@@ -57,9 +57,7 @@ public class Mob implements IMob {
 		if(this.live <= 0) {
 			return true;						// True falls Mob tot ist
 		}
-		else {
-			return false;						// False wenn Mob noch lebt
-		}
+		return false;						// False wenn Mob noch lebt
 	}
 	
 	// Decrease Speed and return true if Mob can walk 
@@ -69,8 +67,6 @@ public class Mob implements IMob {
 			this.speed = this.speed_tmp;
 			return true;					// True if Mob can walk on new Field
 		}
-		else {
-			return false;					// False if Mob needs more Time
-		}
+		return false;					// False if Mob needs more Time
 	}
 }

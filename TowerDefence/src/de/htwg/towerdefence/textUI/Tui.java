@@ -6,7 +6,7 @@ import de.htwg.towerdefence.controller.IGameController;
 // Text based UI 
 public class Tui {
 	
-	IGameController controller;												
+	private IGameController controller;												
 	
 	public Tui(IGameController controller) {								// Connect Controller with Tui
 		// Später Oberserver einfügen
