@@ -6,7 +6,7 @@ public class Mob implements IMob {
 	
 	private int live;			// Gesundheit des Mobs
 	private int speed; 			// Time that mob must wait on Field
-	private int speed_tmp;		// Mainspeed
+	private int speedtmp;		// Mainspeed
 	
 	// Konstruktor
 	public Mob() {
@@ -31,7 +31,7 @@ public class Mob implements IMob {
 	
 	public void setSpeed(int speed) {
 		this.speed = speed;
-		this.speed_tmp = speed;
+		this.speedtmp = speed;
 	}
 	
 	
@@ -46,9 +46,7 @@ public class Mob implements IMob {
 		if(this.live <= 0) {
 			return true;				// True falls Mob tot ist 
 		} 
-		else {
-			return false;				// False wenn Mob noch lebt
-		}
+		return false;				// False wenn Mob noch lebt
 	}
 	
 	// Macht das gleiche wie Mehoden oben nur zusammen
@@ -64,7 +62,7 @@ public class Mob implements IMob {
 	public boolean decreaseSpeedAndWalk() {
 		this.speed--;					
 		if(this.speed <= 0) {				// Check if Speed is Zero
-			this.speed = this.speed_tmp;
+			this.speed = this.speedtmp;
 			return true;					// True if Mob can walk on new Field
 		}
 		return false;					// False if Mob needs more Time

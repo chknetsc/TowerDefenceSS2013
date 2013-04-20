@@ -31,16 +31,13 @@ public class CheckWay implements ICheckWay {
 		// Add Fields to the List
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
 			  g.addVertex(i);
-			  System.out.println("Erzeuge Vertex " + i);
 		}
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
 		   if((i%sizeX) != 0) {
 			 g.addEdge(i,i+1);
-			 System.out.println("Erzeuge Edge zwischen " + i + " und " + (i+1));
 		   }
 		   if(i<=(sizeX*sizeY)-sizeX) {
 			 g.addEdge(i,i+this.sizeX);
-			 System.out.println("Erzeuge Edge zwischen " + i + " und " + (i+this.sizeX));
 		   }
 		}
 	}
@@ -56,22 +53,18 @@ public class CheckWay implements ICheckWay {
 		boolean check = false;
 		if((vertex%sizeX) != 0) {
 		   g.addEdge(vertex,vertex+1);
-		   System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex+1));
 		   check = true;
 		}
 		if(vertex<=(sizeX*sizeY)-sizeX) {
 		   g.addEdge(vertex,vertex+this.sizeX);
-		   System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex+this.sizeX));
 		   check = true;
 		}
 		if(vertex-this.sizeX > 0) {
 			g.addEdge(vertex,vertex-this.sizeX);
-			System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex-this.sizeX));
 			check = true;
 		}
 		if((vertex-1)%this.sizeX != 0) {
 			g.addEdge(vertex,vertex-1);
-			System.out.println("Erzeuge Edge zwischen " + vertex + " und " + (vertex-1));
 			check = true;
 		}
 		return check;
@@ -100,7 +93,6 @@ public class CheckWay implements ICheckWay {
 	public boolean existWay(int startX, int startY, int endX, int endY) {
 		int vertex1 = this.getNumberofVertex(startX, startY);
 		int vertex2 = this.getNumberofVertex(endX, endY);
-		System.out.println("Berechne von: " + vertex1 + " zu " + vertex2 + " die Strecke!");
 		return this.path.searchShortestPath(vertex1,vertex2);
 	}
 	

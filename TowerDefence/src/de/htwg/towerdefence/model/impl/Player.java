@@ -9,15 +9,15 @@ public class Player implements IPlayer {
 	private int life;
 	
 	public Player() {
-		setName("Player1");
-		setLife(10);
-		setMoney(1000);
+		this.name = "Player1";
+		this.life = 10;
+		this.money = 1000;
 	}
 	
 	public Player(String name, int life, int money) {
-		setName(name);
-		setLife(life);
-		setMoney(money);
+		this.name = name;
+		this.life = life;
+		this.money = money;
 	}
 	
 	@Override

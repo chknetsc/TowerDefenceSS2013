@@ -6,13 +6,13 @@ public class Coord {
      
      
      public Coord(){
-    	 this.setX(0);
-    	 this.setY(0);
+    	 this.x = 0;
+    	 this.y = 0;
      }
      
      public Coord(int x, int y){
-    	 this.setX(x);
-    	 this.setY(y);
+    	 this.x = x;
+    	 this.y = y;
      }
      
      // Returns the X Value

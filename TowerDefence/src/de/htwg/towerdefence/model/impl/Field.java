@@ -62,8 +62,7 @@ public class Field {
 
 	// Returns a List of all the Mobs on the Field
 	public List<IMob> getMobs() {
-		List<IMob> mobs = new LinkedList<IMob>(this.mobs);
-		return mobs;
+		return new LinkedList<IMob>(this.mobs);
 	}
 	
 	// Returns a list with Mobs where Speed = 0

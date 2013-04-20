@@ -7,17 +7,17 @@ public class Tower implements ITower {
 	private int damage;       // Damage of the Tower
 	private int range;        // Range of shooting
 	private int speed;        // Speed of Shooting
-	private int speed_tmp;    // Time to the Next shoot
+	private int speedtmp;    // Time to the Next shoot
 	private int numberShoot;  // Number of Shoots each round
 	private double hitrate;   // Hitrate of the Tower
 	
 	// Set the Tower to the Values
 	public Tower(int damage, int range, int speed, int numberShoot, double hitrate) {
-		this.setDamage(damage);              // Set Damage to Value
-		this.setRange(range);                // Set Range to Value
-		this.setSpeed(speed);                // Set Speed to Value
-		this.setHitRate(hitrate);            // Set Hitrate to Value
-		this.setNumberOfShoot(numberShoot);  // Set number of shoot to Value
+		this.damage = damage;             // Set Damage to Value
+		this.range = range;               // Set Range to Value
+		this.speed = speed;               // Set Speed to Value
+		this.hitrate = hitrate;           // Set Hitrate to Value
+		this.numberShoot = numberShoot;   // Set number of shoot to Value           
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public class Tower implements ITower {
 	public boolean setSpeed(int speed) {
 		if ( speed > 0 ) {
 			this.speed = speed;
-			this.speed_tmp = this.speed;
+			this.speedtmp = this.speed;
 			return true;
 		}
 	return false;
@@ -104,9 +104,9 @@ public class Tower implements ITower {
 	@Override
 	// Returns true when the Tower can shoot
 	public boolean shoot() {
-		this.speed_tmp--;					
-		if(this.speed_tmp <= 0) {
-			this.speed_tmp = this.speed;
+		this.speedtmp--;					
+		if(this.speedtmp <= 0) {
+			this.speedtmp = this.speed;
 			return true;
 		}
 		return false;

@@ -7,7 +7,8 @@ public class FastMob extends Mob {
 
 	// Konstruktor creat Mob
 	public FastMob(int level) {
-		intiMob(level);
+		this.name = "FastMob";
+		this.level = level;
 	}
 	
 	// Set the Attributs of the Mob to the given Level

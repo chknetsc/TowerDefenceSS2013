@@ -32,10 +32,11 @@ public class Edge<V> {
  }
 
  @Override public String toString() {
-     if (weight == 1)
+     if (weight == 1) {
          return source + " -- " + target;
-     else
+     } else {
          return source + " -- " + target + " (" + weight + ")";
+     }
  }
 }
 
