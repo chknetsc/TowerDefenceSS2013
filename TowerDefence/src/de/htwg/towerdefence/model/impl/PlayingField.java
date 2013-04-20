@@ -81,7 +81,10 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Checks if a tower is set
 	public boolean isSetTower(int x, int y) {
-		return this.field[y][x].isSetTower();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].isSetTower();
+		}
+		return false;
 	}
 
 	@Override
