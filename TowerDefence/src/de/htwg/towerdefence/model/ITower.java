@@ -3,28 +3,28 @@ package de.htwg.towerdefence.model;
 public interface ITower {
 
 	 // Returns the Damage
-     public int getDamage();
+     int getDamage();
      
      // Set the Damage of the Tower
-     public boolean setDamage(int damage);
+     boolean setDamage(int damage);
      
      // Returns the hitrate
-     public double getHitRate();
+     double getHitRate();
      
      // Set the hitrate of the Tower
-     public boolean setHitRate(double hitrate); 
+     boolean setHitRate(double hitrate); 
      
      // Returns the Range
-     public int getRange(); 
+     int getRange(); 
      
      // Set the Range of the Tower
-     public boolean setRange(int range);  
+     boolean setRange(int range);  
      
      // Returns the Speed
-     public int getSpeed(); 
+     int getSpeed(); 
      
      // Set the Speed of the Tower
-     public boolean setSpeed(int speed); 
+     boolean setSpeed(int speed); 
      
      // Calc the Damage of one shoot
      public int calcDamage();   

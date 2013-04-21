@@ -2,8 +2,10 @@ package de.htwg.towerdefence.model.impl;
 
 public class FastMob extends Mob {
 	
-	private String name;						// Name der Mob Art
-	private int level;							// Level des Mobs
+	// Name der Mob Art
+	private String name;
+	// Level des Mobs
+	private int level;							
 
 	// Konstruktor creat Mob
 	public FastMob(int level) {
@@ -13,32 +15,40 @@ public class FastMob extends Mob {
 	
 	// Set the Attributs of the Mob to the given Level
 	private void intiMob(int level) {
-		setName("FastMob");						// Set MobName
-		setLevel(level);						// Set Level
+		// Set MobName
+		setName("FastMob");	
+		// Set Level
+		setLevel(level);						
 		
-		switch(level) {								// Set Live and Speed to the spezific Level
-		
-			case 1:				// Level 1
+		// Set Live and Speed to the spezific Level
+		switch(level) {								
+		// Level 1
+			case 1:				
 				setLive(10);
 				setSpeed(6);
 				break;
-			case 2:				// Level 2
+		// Level 2
+			case 2:				
 				setLive(30);
 				setSpeed(5);
 				break;
-			case 3:				// Level 3
+	    // Level 3
+			case 3:				
 				setLive(50);
 				setSpeed(4);
 				break;
-			case 4:				// Level 4
+	    // Level 4
+			case 4:				
 				setLive(60);
 				setSpeed(3);
 				break;
-			case 5:				// Level 5
+		// Level 5
+			case 5:				
 				setLive(60);
 				setSpeed(2);
 				break;
-			default:			// Over Level 5
+		// Over Level 5
+			default:			
 				setLive(80);
 				setSpeed(1);
 		}

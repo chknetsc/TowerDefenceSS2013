@@ -48,14 +48,6 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Tower on the Playingfield at x,y
 	public boolean setTower(int x, int y, ITower tower) {
-		// Search for the same Tower on the PlayField
-		for(int i=0; i<this.sizeX; i++) {
-			for(int j=0; j<this.sizeY; j++) {
-				if(this.field[j][i].getTower() == tower) {
-					return false;
-				}
-			}
-		}
 		// Set the tower on the Playfield
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 			   return this.field[y][x].setTower(tower);
@@ -93,17 +85,6 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Place a Mob on the Playingfield at x,y
 	public boolean setMob(int x, int y, IMob mob) {
-		// Search for the same Mob on the PlayField
-		for(int i=0; i<this.sizeX; i++) {
-			for(int j=0; j<this.sizeY; j++) {
-				if(this.field[j][i].getNumberOfMobs() != 0) {
-					List<IMob> m = this.field[j][i].getMobs();
-					if(m.contains(mob)){
-						return false;
-					}
-				}
-			}
-		}
         // Set the Mob on the Playfield	
 		if(x<this.getSizeX() && y<this.getSizeY()) {
 		    return this.field[y][x].setMob(mob);
@@ -178,7 +159,10 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Returns what is on the Field 0-> nothing 1-> tower 2->mob
 	public int getTypeOf(int x, int y) {
-		return this.field[y][x].getTypeOf();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].getTypeOf();
+		}
+		return 0;
 	}
 	
 	// Returns a String of the PlayingField 

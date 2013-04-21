@@ -44,7 +44,6 @@ public class PlayingFieldTest extends TestCase {
 		assertEquals(false,this.f.setTower(8, 11, this.tower));
 		assertEquals(false,this.f.setTower(11, 8, this.tower));
 		assertEquals(true,this.f.setTower(9, 9, this.tower));
-		assertEquals(false,this.f.setTower(8, 8, this.tower));
 		
 		// Get Tower
 		assertEquals(null,this.f.getTower(11, 11));
@@ -69,7 +68,6 @@ public class PlayingFieldTest extends TestCase {
 		assertEquals(false,this.f.setMob(8, 11, this.mob1));
 		assertEquals(false,this.f.setMob(11, 8, this.mob1));
 		assertEquals(true,this.f.setMob(8, 8, this.mob1));
-		assertEquals(false,this.f.setMob(8, 8, this.mob1));
 		assertEquals(true,this.f.setMob(8, 8, this.mob2));
 		
 		// Get Mob
@@ -104,5 +102,22 @@ public class PlayingFieldTest extends TestCase {
 		assertEquals(false,this.f.deleteAllMobs(1, 11));
 		assertEquals(false,this.f.deleteAllMobs(11, 1));
 		assertEquals(true,this.f.deleteAllMobs(2, 2));
+		
+		// Delete Dead Mobs
+		assertEquals(false,this.f.deleteDeadMobs(11, 11));
+		assertEquals(false,this.f.deleteDeadMobs(1, 11));
+		assertEquals(false,this.f.deleteDeadMobs(11, 1));
+		assertEquals(false,this.f.deleteDeadMobs(8, 8));
+		
+		// Get Type of
+		assertEquals(0,this.f.getTypeOf(11, 11));
+		assertEquals(0,this.f.getTypeOf(1, 11));
+		assertEquals(0,this.f.getTypeOf(11, 1));
+		assertEquals(0,this.f.getTypeOf(1, 1));
+		
+		// To String
+		this.f.setTower(3, 3, this.tower);
+		String s = f.drawPlayingField();
+		assertEquals(s,this.f.drawPlayingField());
 	}
 }

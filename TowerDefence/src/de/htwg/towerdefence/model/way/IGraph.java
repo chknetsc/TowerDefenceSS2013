@@ -5,13 +5,6 @@ import java.util.List;
 import de.htwg.towerdefence.util.Edge;
 
 
-
-
-
-
-
-
-
 public interface IGraph<V> {
 	
  // Adds node to the graph

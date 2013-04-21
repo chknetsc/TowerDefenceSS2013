@@ -4,9 +4,14 @@ import de.htwg.towerdefence.model.IMob;
 
 public class Mob implements IMob {
 	
-	private int live;			// Gesundheit des Mobs
-	private int speed; 			// Time that mob must wait on Field
-	private int speedtmp;		// Mainspeed
+	// Gesundheit des Mobs
+	private int live;	
+	
+	// Time that mob must wait on Field
+	private int speed;
+	
+	// Mainspeed
+	private int speedtmp;		
 	
 	// Konstruktor
 	public Mob() {
@@ -37,34 +42,44 @@ public class Mob implements IMob {
 	
 	// Dem Mob schaden abziehen
 	public int getDamage(int damage) {
-		setLive(this.live-damage);		// Zieht übergebenene Damage von aktuellen Leben ab 
-		return this.live;				// Giebt übrige Leben zurück
+		// Zieht übergebenene Damage von aktuellen Leben ab
+		setLive(this.live-damage);
+		// Giebt übrige Leben zurück
+		return this.live;				
 	}
 	
 	// Prüft ob Mob tot ist
 	public boolean mobDead() {
 		if(this.live <= 0) {
-			return true;				// True falls Mob tot ist 
+			// True falls Mob tot ist 
+			return true;				
 		} 
-		return false;				// False wenn Mob noch lebt
+		// False wenn Mob noch lebt
+		return false;				
 	}
 	
 	// Macht das gleiche wie Mehoden oben nur zusammen
 	public boolean mobDamageAndLive(int damage) {
-		this.live -= damage;			// Zieht übergebenene Damage von aktuellen Leben ab
+		// Zieht übergebenene Damage von aktuellen Leben ab
+		this.live -= damage;			
 		if(this.live <= 0) {
-			return true;						// True falls Mob tot ist
+			// True falls Mob tot ist
+			return true;						
 		}
-		return false;						// False wenn Mob noch lebt
+		// False wenn Mob noch lebt
+		return false;						
 	}
 	
 	// Decrease Speed and return true if Mob can walk 
 	public boolean decreaseSpeedAndWalk() {
-		this.speed--;					
-		if(this.speed <= 0) {				// Check if Speed is Zero
+		this.speed--;		
+		// Check if Speed is Zero
+		if(this.speed <= 0) {				
 			this.speed = this.speedtmp;
-			return true;					// True if Mob can walk on new Field
+			// True if Mob can walk on new Field
+			return true;					
 		}
-		return false;					// False if Mob needs more Time
+		// False if Mob needs more Time
+		return false;					
 	}
 }
