@@ -6,17 +6,18 @@ import de.htwg.towerdefence.controller.IGameController;
 // Text based UI 
 public class Tui {
 	
-	private IGameController controller;												
+	private IGameController controller;	
 	
-	public Tui(IGameController controller) {								// Connect Controller with Tui
+	// Connect Controller with Tui
+	public Tui(IGameController controller) {								
 		// Später Oberserver einfügen
 		this.controller = controller;
 	}
 
 	// Handle User Inputs and call the Funktions from Controller
 	public boolean handleInput(String input) {
-		
-		String[] splitInput = input.split(",");			// Cut input Sting in a singel characters
+		// Cut input Sting in a singel characters
+		String[] splitInput = input.split(",");			
 									
 		if(splitInput[0].equalsIgnoreCase("Q")) {
 			printTui("Spiel Beendet");
@@ -25,28 +26,34 @@ public class Tui {
 		else {
 			int xPosition = Integer.parseInt(splitInput[1]);		
 			int yPosition = Integer.parseInt(splitInput[2]);
-			
-			if (checkSizeValue(xPosition,yPosition)) {								// Check X and Y User Input and 
+			// Check X and Y User Input and 
+			if (checkSizeValue(xPosition,yPosition)) {								
 				
 				// Tower setzen
 				if(splitInput[0].equalsIgnoreCase("T")) {
 					// TODO If Fall einbauen falls Platz bereits belegt
-						//controller.createAndSetTower(xPosition, yPosition);			// create a Tower on the Field
+					
+						// create a Tower on the Field
+					
 						printTui("Tower erstellt");
 						return true;
 				}
 				// Monster spawnen bzw später anderen Tower erstellen
 				else if(splitInput[0].equalsIgnoreCase("M")) {
 					// TODO If Fall einbauen falls Platz bereits belegt
-					//controller.createAndSetMob(xPosition, yPosition);				// create a Mob on the Field
+					
+					// create a Mob on the Field
+					
 					printTui("Mob gespawnt");
 					return true;
 				} else {
-					printTui("Tower nicht vorhanden");								// Ausgabe wenn Eingabe fehlerhaft
+					// Ausgabe wenn Eingabe fehlerhaft
+					printTui("Tower nicht vorhanden");								
 					return true;
 				}
 			} else {
-				printTui("Flasche Eingabe");										// Ausgabe wenn Eingabe fehlerhaft
+				// Ausgabe wenn Eingabe fehlerhaft
+				printTui("Flasche Eingabe");										
 				return true;
 			}
 		}
@@ -55,12 +62,7 @@ public class Tui {
 	
 	// Check if the x an y are acceptable Values
 	public boolean checkSizeValue(int xPosition,int yPosition) {
-		/*
-		if ((xPosition >= 0 && xPosition <= controller.fetchSizeX()) &&
-			(yPosition >= 0 && yPosition <= controller.fetchSizeX())) {
-			return true;
-		}
-		*/
+		
 		printTui("Werte sind zu klein oder groß für Spielfeld");
 		return false;
 		
@@ -80,7 +82,7 @@ public class Tui {
 	
 	// Set the Size of the PlayingField
 	public void setPlayingFieldSize(int groese) {
-		//controller.setSizeofPlayingField(groese);
+		
 		
 	}
 	
@@ -95,7 +97,6 @@ public class Tui {
 	
 	public void bringPlayingField() {
 		String spielfeld = "";
-		//spielfeld = controller.fetchPlayingField();
 		printTui(spielfeld);
 	}
 	

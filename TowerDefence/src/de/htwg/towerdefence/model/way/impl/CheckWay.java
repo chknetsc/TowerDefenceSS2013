@@ -7,10 +7,6 @@ import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.model.way.IGraph;
 import de.htwg.towerdefence.util.Coord;
 
-
-
-
-
 public class CheckWay implements ICheckWay {
 	
 	// Saves the List for the Calculation

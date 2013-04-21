@@ -3,16 +3,16 @@ package de.htwg.towerdefence.model;
 public interface IPlayer {
 
 	// --------------- Get and Set Methoden -------------------
-	abstract String getName();
+	String getName();
 
-	abstract void setName(String name);
+	void setName(String name);
 
-	abstract int getMoney();
+	int getMoney();
 
-	abstract void setMoney(int money);
+	void setMoney(int money);
 
-	abstract int getLife();
+	int getLife();
 
-	abstract void setLife(int life);
+	void setLife(int life);
 
 }
