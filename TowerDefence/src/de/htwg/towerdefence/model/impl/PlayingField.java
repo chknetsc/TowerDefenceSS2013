@@ -8,9 +8,12 @@ import de.htwg.towerdefence.model.ITower;
 
 public class PlayingField implements IPlayingField {
 	
-	private Field field[][];    // Field Array with the Towers and Mobs
-	private int sizeX;          // X Size of the Field Array
-	private int sizeY;          // Y Size of the Field Array
+	// Field Array with the Towers and Mobs
+	private Field field[][];  
+	// X Size of the Field Array
+	private int sizeX; 
+	// Y Size of the Field Array
+	private int sizeY;          
 	
 	// Constructor with standard values
 	public PlayingField() {
@@ -120,31 +123,46 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Adds a List to the Field of Mobs
 	public boolean setListMob(int x, int y, List<IMob> mobs) {
-		return this.field[y][x].setListMob(mobs);
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].setListMob(mobs);
+		}
+		return false;
 	}
 
 	@Override
 	// Returns a list with Mobs where Speed = 0
 	public List<IMob> getReadyMobs(int x, int y) {
-		return this.field[y][x].getReadyMobs();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].getReadyMobs();
+		}
+		return null;
 	}
 
 	@Override
 	// Returns the Number of Mobs
 	public int getNumberOfMobs(int x, int y) {
-		return this.field[y][x].getNumberOfMobs();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].getNumberOfMobs();
+		}
+		return 0;
 	}
 
 	@Override
 	// Deletes all Mobs on this Field
 	public boolean deleteAllMobs(int x, int y) {
-		return this.field[y][x].deleteAllMobs();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].deleteAllMobs();
+		}
+		return false;
 	}
 
 	@Override
 	// Deletes all Mobs from the list where Damage <= 0
 	public boolean deleteDeadMobs(int x, int y) {
-		return this.field[y][x].deleteDeadMobs();
+		if(x<this.getSizeX() && y<this.getSizeY()) {
+		  return this.field[y][x].deleteDeadMobs();
+		}
+		return false;
 	}
 
 	// Returns the X Size of the PlayingField

@@ -13,8 +13,10 @@ import de.htwg.towerdefence.util.Coord;
 
 public class CheckWay implements ICheckWay {
 	
-	private IGraph<Integer> g;                  // Saves the List for the Calculation
-	private DijkstraShortestPath<Integer> path; // Calculate the shortest way
+	// Saves the List for the Calculation
+	private IGraph<Integer> g; 
+	// Calculate the shortest way
+	private DijkstraShortestPath<Integer> path; 
 	private int sizeX;
 	private int sizeY;
 
@@ -25,8 +27,10 @@ public class CheckWay implements ICheckWay {
 	
 	// Initialize the Graph with the Way
 	public void initWayPoints(int sizeX, int sizeY) {
-		this.sizeX = sizeX;       // X Field Size
-		this.sizeY = sizeY;       // Y Field Size
+		// X Field Size
+		this.sizeX = sizeX; 
+		// Y Field Size
+		this.sizeY = sizeY;       
 		
 		// Add Fields to the List
 		for(int i = 1; i<=(sizeX*sizeY); i++) {
@@ -103,7 +107,6 @@ public class CheckWay implements ICheckWay {
 		if(l != null) {
 			for(int i = 0; i<l.size(); i++) {
 				c.add(this.getCoordOfVertex(l.get(i)));
-				System.out.println(l.get(i));
 			}
 			return c;
 		}

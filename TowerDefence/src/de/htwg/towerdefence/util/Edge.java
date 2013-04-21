@@ -1,10 +1,15 @@
 package de.htwg.towerdefence.util;
 
 public class Edge<V> {
-
- final private V source;        // Startnode
- final private V target;        // Finishnode
- final private double weight;   // Weight
+ // Startnode
+ final private V source; 
+ 
+ // Finishnode
+ final private V target;
+ 
+ // Weight
+ final private double weight;
+ 
 
 
  public Edge(V source, V target) {

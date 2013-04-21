@@ -6,9 +6,14 @@ import de.htwg.towerdefence.util.Coord;
 
 public class GameController implements IGameController {
 	
-	private Coord start;        // Start Coords of the Playingfield
-	private Coord end;          // End Coords of the Playingfield
-	private CheckWay way;       // CheckWay to proof the Way
+	// Start Coords of the Playingfield
+	private Coord start;  
+	
+	 // End Coords of the Playingfield
+	private Coord end;  
+	
+	// CheckWay to proof the Way
+	private CheckWay way;       
 	
 	public GameController() {
 		

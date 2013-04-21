@@ -3,21 +3,37 @@ package de.htwg.towerdefence.model.impl;
 import de.htwg.towerdefence.model.ITower;
 
 public class Tower implements ITower {
-
-	private int damage;       // Damage of the Tower
-	private int range;        // Range of shooting
-	private int speed;        // Speed of Shooting
-	private int speedtmp;    // Time to the Next shoot
-	private int numberShoot;  // Number of Shoots each round
-	private double hitrate;   // Hitrate of the Tower
+ 
+	// Damage of the Tower
+	private int damage;  
+	
+	// Range of shooting
+	private int range;  
+	
+	 // Speed of Shooting
+	private int speed;
+	
+	// Time to the Next shoot
+	private int speedtmp; 
+	
+	// Number of Shoots each round
+	private int numberShoot;
+	
+	// Hitrate of the Tower
+	private double hitrate;   
 	
 	// Set the Tower to the Values
 	public Tower(int damage, int range, int speed, int numberShoot, double hitrate) {
-		this.damage = damage;             // Set Damage to Value
-		this.range = range;               // Set Range to Value
-		this.speed = speed;               // Set Speed to Value
-		this.hitrate = hitrate;           // Set Hitrate to Value
-		this.numberShoot = numberShoot;   // Set number of shoot to Value           
+		// Set Damage to Value
+		this.damage = damage;
+		// Set Range to Value
+		this.range = range; 
+		// Set Speed to Value
+		this.speed = speed;  
+		// Set Hitrate to Value
+		this.hitrate = hitrate;
+		// Set number of shoot to Value
+		this.numberShoot = numberShoot;              
 	}
 	
 	@Override
