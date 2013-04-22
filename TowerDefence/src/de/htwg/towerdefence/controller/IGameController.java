@@ -1,6 +1,5 @@
 package de.htwg.towerdefence.controller;
 
-import de.htwg.towerdefence.model.ITower;
 
 public interface IGameController {
 	// Towerfunktionen
