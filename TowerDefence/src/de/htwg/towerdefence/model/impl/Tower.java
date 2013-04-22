@@ -5,10 +5,10 @@ import de.htwg.towerdefence.model.ITower;
 public class Tower implements ITower {
 	
 	// Hundert als Konstante
-	private final double hundred = 100.0;
+	private static final double hundred = 100.0;
 	
 	// 0.5 als Konstante
-	private final double half = 0.5;	
+	private static final double half = 0.5;	
  
 	// Damage of the Tower
 	private int damage;  
@@ -137,14 +137,14 @@ public class Tower implements ITower {
 	@Override
 	// Calc the Damage of one shoot
 	public int calcDamage() {
-		int random = (int)(this.random(1.0, this.hundred)+this.half);
+		int random = (int)(this.random(1.0,hundred)+half);
 		// Tower has hit the target
-		if( random <= this.hitrate*100 ) {
+		if( random <= this.hitrate*hundred ) {
 			return this.damage;
 		// Tower didn't hit the target
 		// Make the Damage weaker 
 		} else {
-			return (int)(this.damage*(random/this.hundred));
+			return (int)(this.damage*(random/hundred));
 		}
 	}
 	

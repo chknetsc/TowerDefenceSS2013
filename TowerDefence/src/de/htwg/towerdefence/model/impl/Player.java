@@ -7,13 +7,13 @@ public class Player implements IPlayer {
 	private String name;
 	private int money;
 	private int life;
-	private final int setLive = 10;
-	private final int setMoney = 1000;
+	private static final int setLive = 10;
+	private static final int setMoney = 1000;
 	
 	public Player() {
 		this.name = "Player1";
-		this.life = this.setLive;
-		this.money = this.setMoney;
+		this.life = setLive;
+		this.money = setMoney;
 	}
 	
 	public Player(String name, int life, int money) {
