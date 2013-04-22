@@ -13,8 +13,13 @@ public class GameController implements IGameController {
 	private IPlayingField field;
 	
 	public GameController() {
+		
+	}
+	
+	@Override
+	public void initGameController(int sizeX, int sizeY) {
 		this.field = new PlayingField();
-		this.field.initPlayingField(10, 10);
+		this.field.initPlayingField(sizeX, sizeY);
 	}
 
 	@Override

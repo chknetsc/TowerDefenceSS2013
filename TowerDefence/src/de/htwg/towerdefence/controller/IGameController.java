@@ -2,6 +2,8 @@ package de.htwg.towerdefence.controller;
 
 
 public interface IGameController {
+	
+	void initGameController(int sizeX, int sizeY);
 	// Towerfunktionen
 	boolean setTower(int x, int y);
 	boolean setTower(int x, int y, int damage, int range, int speed, int numberShoot, double hitrate);
