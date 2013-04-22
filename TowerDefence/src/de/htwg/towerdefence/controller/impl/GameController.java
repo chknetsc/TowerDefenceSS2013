@@ -5,6 +5,7 @@ import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayingField;
 import de.htwg.towerdefence.model.ITower;
 import de.htwg.towerdefence.model.impl.Mob;
+import de.htwg.towerdefence.model.impl.PlayingField;
 import de.htwg.towerdefence.model.impl.Tower;
 
 public class GameController implements IGameController {
@@ -12,6 +13,7 @@ public class GameController implements IGameController {
 	private IPlayingField field;
 	
 	public GameController() {
+		this.field = new PlayingField();
 		this.field.initPlayingField(10, 10);
 	}
 
