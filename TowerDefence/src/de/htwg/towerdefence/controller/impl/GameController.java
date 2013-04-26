@@ -29,10 +29,33 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean setTower(int x, int y, int damage, int range, int speed,
-			int numberShoot, double hitrate) {
-		ITower tower = new Tower(damage,range,speed,numberShoot,hitrate);
-		return this.field.setTower(x, y, tower);
+	public int getTowerDamage(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTowerRange(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTowerSpeed(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTowerNumberShoot(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getTowerHitrate(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -82,10 +105,26 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean setMob(int x, int y, int live, int speed) {
-		IMob mob = new Mob();
-		mob.setLive(live);
-		mob.setSpeed(speed);
-		return this.field.setMob(x, y, mob);
+	public boolean startGame() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean pauseGame() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean stopGame() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getMoney() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
