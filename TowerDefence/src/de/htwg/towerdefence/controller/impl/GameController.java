@@ -1,16 +1,23 @@
 package de.htwg.towerdefence.controller.impl;
 
+import java.util.Timer;
+
 import de.htwg.towerdefence.controller.IGameController;
+import de.htwg.towerdefence.controller.TimerController;
 import de.htwg.towerdefence.model.IMob;
+import de.htwg.towerdefence.model.IPlayer;
 import de.htwg.towerdefence.model.IPlayingField;
 import de.htwg.towerdefence.model.ITower;
 import de.htwg.towerdefence.model.impl.Mob;
+import de.htwg.towerdefence.model.impl.Player;
 import de.htwg.towerdefence.model.impl.PlayingField;
 import de.htwg.towerdefence.model.impl.Tower;
 
 public class GameController implements IGameController {
 		
 	private IPlayingField field;
+	private IPlayer player;
+	Timer timer;
 	
 	public GameController() {
 		
@@ -20,6 +27,7 @@ public class GameController implements IGameController {
 	public void initGameController(int sizeX, int sizeY) {
 		this.field = new PlayingField();
 		this.field.initPlayingField(sizeX, sizeY);
+		this.player = new Player();
 	}
 
 	@Override
@@ -105,21 +113,19 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean startGame() {
-		// TODO Auto-generated method stub
-		return false;
+	public void startGame() {
+		this.timer = new Timer();
+		timer.schedule( new TimerController(this.field,this.player), 0, 500 );
 	}
 
 	@Override
-	public boolean pauseGame() {
-		// TODO Auto-generated method stub
-		return false;
+	public void pauseGame() {
+		timer.cancel();
 	}
 
 	@Override
-	public boolean stopGame() {
-		// TODO Auto-generated method stub
-		return false;
+	public void stopGame() {
+		timer.cancel();
 	}
 
 	@Override

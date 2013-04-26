@@ -23,8 +23,8 @@ public interface IGameController {
 	
 	// Steuerung
 	void initGameController(int sizeX, int sizeY);
-	boolean startGame();
-	boolean pauseGame();
-	boolean stopGame();
+	void startGame();
+	void pauseGame();
+	void stopGame();
 	int getMoney();
 }
