@@ -31,7 +31,7 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean setTower(int x, int y) {
+	public boolean setTower(int x, int y, int type) {
 		ITower tower = new Tower(1,1,1,1,1.0);
 		return this.field.setTower(x, y, tower);
 	}
@@ -105,7 +105,7 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean setMob(int x, int y) {
+	public boolean setMob(int x, int y, int type) {
 		IMob mob = new Mob();
 		mob.setLive(100);
 		mob.setSpeed(1);
@@ -130,6 +130,12 @@ public class GameController implements IGameController {
 
 	@Override
 	public int getMoney() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getLive() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

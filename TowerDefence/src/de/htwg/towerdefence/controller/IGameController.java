@@ -4,7 +4,7 @@ package de.htwg.towerdefence.controller;
 public interface IGameController {
 		
 	// Towerfunktionen
-	boolean setTower(int x, int y);
+	boolean setTower(int x, int y, int type);
 	int getTowerDamage(int x, int y);
 	int getTowerRange(int x, int y);
 	int getTowerSpeed(int x, int y);
@@ -19,7 +19,7 @@ public interface IGameController {
 	boolean isSetTower(int x, int y);
 	
 	// Mobfunktionen
-	boolean setMob(int x, int y);
+	boolean setMob(int x, int y, int type);
 	
 	// Steuerung
 	void initGameController(int sizeX, int sizeY);
@@ -27,4 +27,5 @@ public interface IGameController {
 	void pauseGame();
 	void stopGame();
 	int getMoney();
+	int getLive();
 }
