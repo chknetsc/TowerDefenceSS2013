@@ -11,11 +11,17 @@ import de.htwg.towerdefence.model.impl.Mob;
 import de.htwg.towerdefence.model.impl.Player;
 import de.htwg.towerdefence.model.impl.PlayingField;
 import de.htwg.towerdefence.model.impl.Tower;
+import de.htwg.towerdefence.model.way.ICheckWay;
+import de.htwg.towerdefence.model.way.impl.CheckWay;
+import de.htwg.towerdefence.util.Coord;
 
 public class GameController implements IGameController {
 		
 	private IPlayingField field;
 	private IPlayer player;
+	private ICheckWay way;
+	private Coord start;
+	private Coord end;
 	Timer timer;
 	
 	public GameController() {
@@ -23,16 +29,27 @@ public class GameController implements IGameController {
 	}
 	
 	@Override
-	public void initGameController(int sizeX, int sizeY) {
+	public void initGameController(int sizeX, int sizeY, Coord start, Coord end) {
 		this.field = new PlayingField();
+		this.way = new CheckWay();
+		this.way.initWayPoints(sizeX, sizeY);
 		this.field.initPlayingField(sizeX, sizeY);
 		this.player = new Player();
+		this.start = start;
+		this.end = end;
+		this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY());
 	}
 
 	@Override
 	public boolean setTower(int x, int y, int type) {
-		ITower tower = new Tower(1,1,1,1,1.0);
-		return this.field.setTower(x, y, tower);
+		this.way.deleteWayPoint(x, y);
+		if(this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY())) {
+			ITower tower = new Tower(1,1,1,1,1.0);
+			return this.field.setTower(x, y, tower);
+		} 
+	    this.way.addWayPoint(x, y);
+	    this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY());
+ 	    return false;
 	}
 
 	@Override
@@ -127,14 +144,14 @@ public class GameController implements IGameController {
 	public boolean setMob(int x, int y, int type) {
 		IMob mob = new Mob();
 		mob.setLive(100);
-		mob.setSpeed(1);
+		mob.setSpeed(2);
 		return this.field.setMob(x, y, mob);
 	}
 
 	@Override
 	public void startGame() {
 		this.timer = new Timer();
-		timer.schedule( new TimerController(this.field,this.player), 0, 500 );
+		timer.schedule( new TimerController(this.field,this.player,this.way), 0, 500 );
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package de.htwg.towerdefence.controller;
 
+import de.htwg.towerdefence.util.Coord;
+
 
 public interface IGameController {
 		
@@ -27,7 +29,7 @@ public interface IGameController {
 	boolean setMob(int x, int y, int type);
 	
 	// Steuerung
-	void initGameController(int sizeX, int sizeY);
+	void initGameController(int sizeX, int sizeY, Coord start, Coord end);
 	void startGame();
 	void pauseGame();
 	void stopGame();
