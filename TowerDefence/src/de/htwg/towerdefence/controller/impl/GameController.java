@@ -3,7 +3,6 @@ package de.htwg.towerdefence.controller.impl;
 import java.util.Timer;
 
 import de.htwg.towerdefence.controller.IGameController;
-import de.htwg.towerdefence.controller.TimerController;
 import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayer;
 import de.htwg.towerdefence.model.IPlayingField;
@@ -38,32 +37,27 @@ public class GameController implements IGameController {
 
 	@Override
 	public int getTowerDamage(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field.getTower(x, y).getDamage();
 	}
 
 	@Override
 	public int getTowerRange(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field.getTower(x, y).getRange();
 	}
 
 	@Override
 	public int getTowerSpeed(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field.getTower(x, y).getSpeed();
 	}
 
 	@Override
 	public int getTowerNumberShoot(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field.getTower(x, y).getNumberOfShoot();
 	}
 
 	@Override
 	public double getTowerHitrate(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.field.getTower(x, y).getHitRate();
 	}
 
 	@Override
@@ -89,6 +83,31 @@ public class GameController implements IGameController {
 	@Override
 	public boolean updateTowerHitrate(int x, int y, double hitrate) {
 		return this.field.getTower(x, y).setHitRate(hitrate);
+	}
+	
+	@Override
+	public int getUpdateTowerDamageCost(int x, int y) {
+		return 10;
+	}
+
+	@Override
+	public int getUpdateTowerRangeCost(int x, int y) {
+		return 10;
+	}
+
+	@Override
+	public int getUpdateTowerSpeedCost(int x, int y) {
+		return 10;
+	}
+
+	@Override
+	public int getUpdateTowerNumberShootCost(int x, int y) {
+		return 10;
+	}
+
+	@Override
+	public int getUpdateTowerHitrateCost(int x, int y) {
+		return 10;
 	}
 
 	@Override
@@ -130,13 +149,11 @@ public class GameController implements IGameController {
 
 	@Override
 	public int getMoney() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.player.getMoney();
 	}
 
 	@Override
 	public int getLive() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.player.getLife();
 	}
 }

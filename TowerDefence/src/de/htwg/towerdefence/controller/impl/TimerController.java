@@ -1,4 +1,4 @@
-package de.htwg.towerdefence.controller;
+package de.htwg.towerdefence.controller.impl;
 
 import java.util.TimerTask;
 
