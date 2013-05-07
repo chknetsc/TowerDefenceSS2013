@@ -40,6 +40,7 @@ public class TowerDefence {
 		cont.setTower(3, 8, 1);
 		cont.setTower(2, 8, 1);
 		cont.setTower(1, 8, 1);
-		
+		Thread.sleep(3000);
+		cont.setTower(5, 2, 1);
 	  }
 }

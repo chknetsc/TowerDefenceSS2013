@@ -34,6 +34,7 @@ public class TimerController extends TimerTask{
 			mobs = this.field.getReadyMobs(waypoints.get(i).getX(), waypoints.get(i).getY());
 			this.field.setListMob(waypoints.get(i+1).getX(), waypoints.get(i+1).getY(), mobs);
 		}
+		
 		mobs = this.field.getReadyMobs(waypoints.get(waypoints.size()-1).getX(), waypoints.get(waypoints.size()-1).getY());
 		this.player.setLife(this.player.getLife()-mobs.size());
 	}
