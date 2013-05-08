@@ -7,6 +7,7 @@ import java.util.TimerTask;
 import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayer;
 import de.htwg.towerdefence.model.IPlayingField;
+import de.htwg.towerdefence.model.ITower;
 import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.util.Coord;
 
@@ -37,5 +38,90 @@ public class TimerController extends TimerTask{
 		
 		mobs = this.field.getReadyMobs(waypoints.get(waypoints.size()-1).getX(), waypoints.get(waypoints.size()-1).getY());
 		this.player.setLife(this.player.getLife()-mobs.size());
+	}
+	
+	public void TowersShootOnMobs() {
+		
+		ITower tower;
+		
+		for (int x = 0; x <= this.field.getSizeX(); x++) {					// Gehe alle Felder durch
+			for (int y = 0; y <= this.field.getSizeY(); y++) {		 
+				if(this.field.isSetTower(x, y)) {					// Schaue ob Tower auf dem Feld liegt
+					
+					tower = this.field.getTower(x, y);
+					int range = tower.getRange();
+					int numberOfShoots = tower.getNumberOfShoot();
+					int yT = y;
+					int xT = x;
+
+					
+					// Oberes Feld 
+					yT = yT-range;									// Erstes Feld checken
+					MobsOnField(tower, xT, yT, numberOfShoots);
+						
+					int durchgang = 2;
+					for(int i = 0; i < range; i++) {
+						if(i==0) {
+							yT++;
+							xT++;
+						} else {
+							yT++;
+							xT = xT + durchgang;
+						}
+						for(int j = 0; j <= durchgang; j++) {
+							MobsOnField(tower, xT, yT, numberOfShoots); 
+							xT--;
+						}
+						durchgang += 2;
+					}
+					
+					
+					// unteres Feld
+					yT = y;
+					xT = x;
+					
+					yT += range; 
+					MobsOnField(tower, xT, yT, numberOfShoots);
+					
+					durchgang = 2;
+					for(int i = 0; i < (range-1); i++) {
+						if(i==0) {
+							yT--;
+							xT--;
+						} else {
+							yT--;
+							xT = xT - durchgang;
+						}
+						for(int j = 0; j <= durchgang; j++) {
+							MobsOnField(tower, xT, yT, numberOfShoots);
+							xT++;
+						}
+						durchgang += 2;
+					}
+				}
+			}
+		}
+	}
+	
+	// Returns the Number of Shoots leaft
+	public int MobsOnField(ITower tower, int x, int y, int numberOfShoots) {
+		
+		if(this.field.getNumberOfMobs(x, y) != 0) {				// befindet sich Mobs auf dem Feld
+			
+			List<IMob> mobs = field.getMobs(x, y);
+			
+			for(int i = 0; i <= mobs.size(); i++) {				// Über Mob Liste iterieren
+				if(tower.shoot() && numberOfShoots != 0) {		// Prüfen ob Tower Schussbereit ist und noch schüsse übrig sind
+					IMob mob = mobs.get(i);
+					int damage = tower.calcDamage();			// Schaden berechnen 
+					if(mob.mobDamageAndLive(damage)) {			// Leben von Mob abziehen und schauen ob er tot ist 
+						mobs.remove(i);							// Mob aus Liste löschen
+						// Get Money 
+					}
+					numberOfShoots--;
+				}
+			}
+		}
+		return numberOfShoots;
 	}
 }

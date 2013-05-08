@@ -173,4 +173,6 @@ public class GameController implements IGameController {
 	public int getLive() {
 		return this.player.getLife();
 	}
+	
+	
 }
