@@ -1,6 +1,10 @@
 package de.htwg.towerdefence.TowerDefence;
 
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.SlickException;
+
 import de.htwg.towerdefence.controller.impl.GameController;
+import de.htwg.towerdefence.gui.impl.GUITowerDefence;
 import de.htwg.towerdefence.util.Coord;
 
 public class TowerDefence {
@@ -10,6 +14,17 @@ public class TowerDefence {
 	  {
 		// TowerDefence
 		GameController cont;
+		
+		/*
+		AppGameContainer app;
+		try {
+			app = new AppGameContainer(new GUITowerDefence());
+			app.setDisplayMode(800, 600, false);
+		    app.start();
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}	    
+	    */
 		cont = new GameController();
 		cont.initGameController(10, 10,new Coord(0,0),new Coord(9,9));
 		System.out.println("Spiel gestartet");
