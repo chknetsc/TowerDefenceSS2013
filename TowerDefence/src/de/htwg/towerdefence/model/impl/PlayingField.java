@@ -122,7 +122,7 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Returns the Number of Mobs
 	public int getNumberOfMobs(int x, int y) {
-		if(x<this.getSizeX() && y<this.getSizeY()) {
+		if(x<this.getSizeX() && y<this.getSizeY() && x>=0 && y>=0) {
 		  return this.field[y][x].getNumberOfMobs();
 		}
 		return 0;

@@ -1,7 +1,6 @@
 package de.htwg.towerdefence.TowerDefence;
 
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.SlickException;
+
 
 import de.htwg.towerdefence.controller.impl.GameController;
 import de.htwg.towerdefence.gui.impl.GUITowerDefence;

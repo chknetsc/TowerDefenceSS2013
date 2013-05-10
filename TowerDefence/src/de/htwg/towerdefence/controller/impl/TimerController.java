@@ -26,8 +26,6 @@ public class TimerController extends TimerTask{
 	
 	@Override
 	public void run() {
-		System.out.println(this.field.drawPlayingField());
-		System.out.println("Anzahöl an Leben: " + this.player.getLife());
 		List<Coord> waypoints = this.way.getShortesWay();
 		List<IMob> mobs;
 		
@@ -38,9 +36,14 @@ public class TimerController extends TimerTask{
 		
 		mobs = this.field.getReadyMobs(waypoints.get(waypoints.size()-1).getX(), waypoints.get(waypoints.size()-1).getY());
 		this.player.setLife(this.player.getLife()-mobs.size());
+		
+		towersShootOnMobs();
+		System.out.println(this.field.drawPlayingField());
+		System.out.println("Anzahöl an Leben: " + this.player.getLife());
+		
 	}
 	
-	public void TowersShootOnMobs() {
+	public void towersShootOnMobs() {
 		
 		ITower tower;
 		
@@ -53,7 +56,6 @@ public class TimerController extends TimerTask{
 					int numberOfShoots = tower.getNumberOfShoot();
 					int yT = y;
 					int xT = x;
-
 					
 					// Oberes Feld 
 					yT = yT-range;									// Erstes Feld checken
@@ -110,17 +112,19 @@ public class TimerController extends TimerTask{
 			
 			List<IMob> mobs = field.getMobs(x, y);
 			
-			for(int i = 0; i <= mobs.size(); i++) {				// Über Mob Liste iterieren
+			for(int i = 0; i < mobs.size(); i++) {				// Über Mob Liste iterieren
 				if(tower.shoot() && numberOfShoots != 0) {		// Prüfen ob Tower Schussbereit ist und noch schüsse übrig sind
 					IMob mob = mobs.get(i);
+					System.out.println("MobLife: "+ mob.getLive());
 					int damage = tower.calcDamage();			// Schaden berechnen 
-					if(mob.mobDamageAndLive(damage)) {			// Leben von Mob abziehen und schauen ob er tot ist 
-						mobs.remove(i);							// Mob aus Liste löschen
-						// Get Money 
+					System.out.println("Damage: "+ damage);
+					mob.getDamage(damage);						// Leben von Mob abziehen und schauen ob er tot ist
+					System.out.println("MobLife: "+ mob.getLive());
+					// Get Money 
 					}
 					numberOfShoots--;
-				}
 			}
+		this.field.deleteDeadMobs(x, y);				// Mob aus Liste löschen
 		}
 		return numberOfShoots;
 	}
