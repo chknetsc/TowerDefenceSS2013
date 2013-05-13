@@ -44,7 +44,7 @@ public class GameController implements IGameController {
 	public boolean setTower(int x, int y, int type) {
 		this.way.deleteWayPoint(x, y);
 		if(this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY())) {
-			ITower tower = new Tower(30,1,100,2,0.6);
+			ITower tower = new Tower(20,1,2,5,0.6);
 			return this.field.setTower(x, y, tower);
 		} 
 	    this.way.addWayPoint(x, y);
@@ -144,14 +144,14 @@ public class GameController implements IGameController {
 	public boolean setMob(int x, int y, int type) {
 		IMob mob = new Mob();
 		mob.setLive(200);
-		mob.setSpeed(50);
+		mob.setSpeed(2);
 		return this.field.setMob(x, y, mob);
 	}
 
 	@Override
 	public void startGame() {
 		this.timer = new Timer();
-		timer.schedule( new TimerController(this.field,this.player,this.way), 0, 200 );
+		timer.schedule( new TimerController(this.field,this.player,this.way), 0, 500 );
 	}
 
 	@Override
