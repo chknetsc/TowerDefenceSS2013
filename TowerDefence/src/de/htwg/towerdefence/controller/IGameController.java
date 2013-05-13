@@ -35,4 +35,8 @@ public interface IGameController {
 	void stopGame();
 	int getMoney();
 	int getLive();
+	
+	int getSizeX();
+	int getSizeY();
+	int getTypeOf(int x, int y);
 }
