@@ -2,7 +2,9 @@ package de.htwg.towerdefence.TowerDefence;
 
 
 
+import de.htwg.towerdefence.controller.IGameController;
 import de.htwg.towerdefence.controller.impl.GameController;
+import de.htwg.towerdefence.gui.impl.GUITD;
 import de.htwg.towerdefence.gui.impl.GUITowerDefence;
 import de.htwg.towerdefence.util.Coord;
 
@@ -12,20 +14,13 @@ public class TowerDefence {
 	public static void main( String[] args ) throws InterruptedException
 	  {
 		// TowerDefence
-		GameController cont;
-		
-		/*
-		AppGameContainer app;
-		try {
-			app = new AppGameContainer(new GUITowerDefence());
-			app.setDisplayMode(800, 600, false);
-		    app.start();
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}	    
-	    */
+		IGameController cont;
 		cont = new GameController();
 		cont.initGameController(10, 10,new Coord(0,0),new Coord(9,9));
+		
+		Thread t1 = new Thread( new GUITD(cont));
+		t1.start();
+
 		System.out.println("Spiel gestartet");
 		cont.startGame();
 		cont.setTower(0, 1, 1);
@@ -55,6 +50,6 @@ public class TowerDefence {
 		cont.setTower(2, 8, 1);
 		cont.setTower(1, 8, 1);
 		Thread.sleep(3000);
-		cont.setTower(5, 2, 1);
+		cont.setTower(5, 2, 1);		
 	  }
 }

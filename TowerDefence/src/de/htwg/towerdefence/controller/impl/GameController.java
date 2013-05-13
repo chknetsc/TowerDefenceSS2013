@@ -173,6 +173,21 @@ public class GameController implements IGameController {
 	public int getLive() {
 		return this.player.getLife();
 	}
+
+	@Override
+	public int getSizeX() {
+		return this.field.getSizeX();
+	}
+
+	@Override
+	public int getSizeY() {
+		return this.field.getSizeY();
+	}
+
+	@Override
+	public int getTypeOf(int x, int y) {
+		return this.field.getTypeOf(x, y);
+	}
 	
 	
 }
