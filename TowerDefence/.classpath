@@ -24,7 +24,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/slick.jar"/>
-	<classpathentry kind="lib" path="C:/Users/chknetsc/Downloads/lwjgl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slick.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/lwjgl-2.9.0/lwjgl-2.9.0/jar/lwjgl.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
