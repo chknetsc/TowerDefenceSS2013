@@ -4,6 +4,13 @@
   <artifactId>de.htwg.TowerDefence</artifactId>
   <version>0.0.1-SNAPSHOT</version>
    <name>TowerDefence</name>
+   <repositories>
+	<repository>
+		<id>slick</id>
+		<name>slick</name>
+		<url>http://slick.cokeandcode.com/mavenrepo</url>
+	</repository>
+  </repositories>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>JunitTest</testSourceDirectory>
