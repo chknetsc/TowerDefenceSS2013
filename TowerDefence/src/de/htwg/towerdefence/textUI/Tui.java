@@ -1,6 +1,7 @@
 package de.htwg.towerdefence.textUI;
 
 import de.htwg.towerdefence.controller.IGameController;
+import de.htwg.towerdefence.util.Coord;
 
 
 // Text based UI 
@@ -12,6 +13,7 @@ public class Tui {
 	public Tui(IGameController controller) {								
 		// Später Oberserver einfügen
 		this.controller = controller;
+		controller.initGameController(10, 10, new Coord(0,0), new Coord(10,10));
 	}
 
 	// Handle User Inputs and call the Funktions from Controller
@@ -62,9 +64,11 @@ public class Tui {
 	
 	// Check if the x an y are acceptable Values
 	public boolean checkSizeValue(int xPosition,int yPosition) {
-		
-		printTui("Werte sind zu klein oder groß für Spielfeld");
-		return false;
+		if( xPosition < 0 || xPosition > controller.getSizeX() || yPosition < 0 || yPosition > controller.getSizeY() ) {
+			printTui("Werte sind zu klein oder groß für Spielfeld");
+			return false;
+		}
+		return true;
 		
 	}
 
@@ -95,8 +99,8 @@ public class Tui {
 		printTui(instruktion);
 	}
 	
-	public void bringPlayingField() {
-		String spielfeld = "";
+	public void printPlayingField() {
+		String spielfeld = controller.getPlayingField();
 		printTui(spielfeld);
 	}
 	

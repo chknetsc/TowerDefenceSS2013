@@ -52,6 +52,10 @@ public class GameController implements IGameController {
  	    return false;
 	}
 
+	public String getPlayingField() {
+		return this.field.drawPlayingField();
+	}
+	
 	@Override
 	public int getTowerDamage(int x, int y) {
 		return this.field.getTower(x, y).getDamage();

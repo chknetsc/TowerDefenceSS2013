@@ -24,6 +24,7 @@ public interface IGameController {
 	boolean updateTowerHitrate(int x, int y, double hitrate);
 	boolean deleteTower(int x, int y);
 	boolean isSetTower(int x, int y);
+	public String getPlayingField();
 	
 	// Mobfunktionen
 	boolean setMob(int x, int y, int type);

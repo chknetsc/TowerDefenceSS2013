@@ -12,7 +12,7 @@ public class TowerDefence {
 	
 	
 	public static void main( String[] args ) throws InterruptedException
-	  {
+	{
 		// TowerDefence
 		IGameController cont;
 		cont = new GameController();
