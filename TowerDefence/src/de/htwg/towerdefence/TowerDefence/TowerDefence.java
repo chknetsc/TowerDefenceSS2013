@@ -5,7 +5,6 @@ package de.htwg.towerdefence.TowerDefence;
 import de.htwg.towerdefence.controller.IGameController;
 import de.htwg.towerdefence.controller.impl.GameController;
 import de.htwg.towerdefence.gui.impl.GUITD;
-import de.htwg.towerdefence.gui.impl.GUITowerDefence;
 import de.htwg.towerdefence.util.Coord;
 
 public class TowerDefence {
