@@ -16,6 +16,11 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
 	
 	private IGameController cont;
 	private Image statusbar = null;
+	private Image background = null;
+	private Image playingfield = null;
+	private Image upgrademenu = null;
+	private Image tower1 = null;
+	
 	
 	private int MouseX = 0;
 	private int MouseY = 0;
@@ -35,6 +40,10 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	gc.setShowFPS(false);
     	
     	this.statusbar = new Image("res/statusbar.png");
+    	this.background = new Image("res/background.png");
+    	this.playingfield = new Image("res/playingfield.png");
+    	this.upgrademenu = new Image("res/upgrademenu.png");
+    	this.tower1 = new Image("res/tower1.png");
     }
     
     @Override
@@ -45,8 +54,7 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
         	this.MouseY = gc.getInput().getMouseY();
         	this.XCord = ((this.MouseX) / 20);
         	this.YCord = ((this.MouseY) / 20);
-        	this.cont.setTower(this.XCord, (this.YCord-1), 0);
-        	
+        	this.cont.setTower(this.XCord-2, (this.YCord-3), 0);
         	if(this.XCord == 39 && this.YCord == 29)  {
         		this.cont.setMob(0, 0, 0);
         	}
@@ -58,41 +66,56 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	g.setColor(Color.white);
     	g.fillRect(0, 0, gc.getWidth(),gc.getHeight());
     	    	
+    	this.background.draw(0, 0, 800, 600);
+    	this.background.setAlpha(1.0f);
+    	
     	this.statusbar.draw(0, 0, 800, 25);
     	this.statusbar.setAlpha(1.0f);
+    	
+    	this.playingfield.draw(30, 50, 600, 461);
+    	this.playingfield.setAlpha(1.0f);
+    	
+    	this.upgrademenu.draw(650, 50, 150, 400);
+    	this.upgrademenu.setAlpha(0.8f);
     	
     	g.setColor(Color.white);
     	g.drawString("Live: " + this.cont.getLive(), 550, 2);
     	g.drawString("Money: " + this.cont.getMoney(), 650, 2);
+
     	
-    	g.drawString("X-Cord: " + this.MouseX, 0, 2);
-    	g.drawString("Y-Cord: " + this.MouseY, 130, 2);
+    	this.drawMash(gc, g);
+    	this.drawInfo(g);
     	
-    	g.drawString("FieldCoords: " + this.XCord + "/" + (this.YCord-1), 260, 2);
     	
-    	g.setColor(Color.black);
-    	
-    	for(int i = 0; i<gc.getWidth(); i=i+20) {
-    		g.fillRect(i,20,1,gc.getHeight());
-    	}
-    	
-    	for(int i = 0; i<gc.getHeight(); i=i+20) {
-    		g.fillRect(0,i,gc.getWidth(),1);
-    	}
-    	
-    	g.setColor(Color.blue);
     	for(int i = 0; i<this.cont.getSizeX(); i++) {
     		for(int j = 0; j<this.cont.getSizeY(); j++) {
         		if(this.cont.getTypeOf(i,j) == 2) {
         			g.setColor(Color.blue);
-        			g.fillRect(i*20,j*20+20,20,20);
+        			g.fillRect(i*20+40,j*20+60,20,20);
         		}
         		if(this.cont.getTypeOf(i,j) == 1) {
-        			g.setColor(Color.black);
-        			g.fillRect(i*20,j*20+20,20,20);
+        			this.tower1.draw(i*20+40, j*20+60, 20, 20);
+        	    	this.tower1.setAlpha(1.0f);
         		}
         	}
     	}
+    }
+    
+    private void drawInfo(Graphics g) {
+    	g.setColor(Color.white);
+    	g.drawString("X-Cord: " + this.MouseX, 0, 2);
+    	g.drawString("Y-Cord: " + this.MouseY, 130, 2);
+    	g.drawString("FieldCoords: " + this.XCord + "/" + (this.YCord-1), 260, 2);
+    }
+    
+    private void drawMash(GameContainer gc, Graphics g) {
+      g.setColor(Color.black);
+      for(int i = 60; i<(gc.getWidth()-160); i=i+20) {
+    	  g.fillRect(i,60,1,(gc.getHeight()-160));
+      }
+      for(int i = 80; i<(gc.getHeight()-100); i=i+20) {
+    	  g.fillRect(40,i,(gc.getWidth()-220),1);
+      }
     }
     
     public void componentActivated(AbstractComponent source) {
