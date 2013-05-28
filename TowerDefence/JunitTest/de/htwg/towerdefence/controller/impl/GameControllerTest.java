@@ -41,11 +41,11 @@ public class GameControllerTest extends TestCase {
 		assertEquals(2 , controller.getTowerSpeed(3, 3));
 		
 		// Tower updaten 
-		assertEquals(true , controller.updateTowerDamage(3, 3, 30));
-		assertEquals(true , controller.updateTowerHitrate(3, 3, 0.7));
-		assertEquals(true , controller.updateTowerNumberShoot(3, 3, 6));
-		assertEquals(true , controller.updateTowerRange(3, 3, 2));
-		assertEquals(true , controller.updateTowerSpeed(3, 3, 1));
+		assertEquals(true , controller.updateTowerDamage(3, 3));
+		assertEquals(true , controller.updateTowerHitrate(3, 3));
+		assertEquals(true , controller.updateTowerNumberShoot(3, 3));
+		assertEquals(true , controller.updateTowerRange(3, 3));
+		assertEquals(true , controller.updateTowerSpeed(3, 3));
 		
 		assertEquals(10 , controller.getUpdateTowerDamageCost(3, 3));
 		assertEquals(10 , controller.getUpdateTowerHitrateCost(3, 3));

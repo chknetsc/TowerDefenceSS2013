@@ -21,6 +21,6 @@ public class TowerDefence {
 		t1.start();
 
 		System.out.println("Spiel gestartet");
-		cont.startGame();
+		cont.startGame();		
 	  }
 }

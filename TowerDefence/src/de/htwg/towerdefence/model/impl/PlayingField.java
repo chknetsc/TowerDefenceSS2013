@@ -58,7 +58,7 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Returns the Tower from x,y at the Playingfield
 	public ITower getTower(int x, int y) {
-		if(x<this.getSizeX() && y<this.getSizeY()) {
+		if(x<this.getSizeX() && y<this.getSizeY() && x >= 0 && y >= 0) {
 		    return this.field[y][x].getTower();
 		}
 		return null;
@@ -76,7 +76,7 @@ public class PlayingField implements IPlayingField {
 	@Override
 	// Checks if a tower is set
 	public boolean isSetTower(int x, int y) {
-		if(x<this.getSizeX() && y<this.getSizeY()) {
+		if(x<this.getSizeX() && y<this.getSizeY() && x >= 0 && y >=0) {
 		  return this.field[y][x].isSetTower();
 		}
 		return false;

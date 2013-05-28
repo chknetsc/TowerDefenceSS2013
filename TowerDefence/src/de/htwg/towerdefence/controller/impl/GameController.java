@@ -82,28 +82,28 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public boolean updateTowerDamage(int x, int y, int damage) {
-		return this.field.getTower(x, y).setDamage(damage);
+	public boolean updateTowerDamage(int x, int y) {
+		return this.field.getTower(x, y).setDamage(this.field.getTower(x, y).getDamage()+10);
 	}
 
 	@Override
-	public boolean updateTowerRange(int x, int y, int range) {
-		return this.field.getTower(x, y).setRange(range);
+	public boolean updateTowerRange(int x, int y) {
+		return this.field.getTower(x, y).setRange(this.field.getTower(x, y).getRange()+1);
 	}
 
 	@Override
-	public boolean updateTowerSpeed(int x, int y, int speed) {
-		return this.field.getTower(x, y).setSpeed(speed);
+	public boolean updateTowerSpeed(int x, int y) {
+		return this.field.getTower(x, y).setSpeed(this.field.getTower(x, y).getSpeed()+1);
 	}
 
 	@Override
-	public boolean updateTowerNumberShoot(int x, int y, int numberShoot) {
-		return this.field.getTower(x, y).setNumberOfShoot(numberShoot);
+	public boolean updateTowerNumberShoot(int x, int y) {
+		return this.field.getTower(x, y).setNumberOfShoot(this.field.getTower(x, y).getNumberOfShoot()+1);
 	}
 
 	@Override
-	public boolean updateTowerHitrate(int x, int y, double hitrate) {
-		return this.field.getTower(x, y).setHitRate(hitrate);
+	public boolean updateTowerHitrate(int x, int y) {
+		return this.field.getTower(x, y).setHitRate(this.field.getTower(x, y).getHitRate()+0.1);
 	}
 	
 	@Override
