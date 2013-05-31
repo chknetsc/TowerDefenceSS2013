@@ -17,8 +17,8 @@ public class TowerDefence {
 		cont = new GameController();
 		cont.initGameController(29, 20,new Coord(0,0),new Coord(28,19));
 		
-		Thread t1 = new Thread( new GUITD(cont));
-		t1.start();
+		//Thread t1 = new Thread( new GUITD(cont));
+		//t1.start();
 
 		System.out.println("Spiel gestartet");
 		cont.startGame();		

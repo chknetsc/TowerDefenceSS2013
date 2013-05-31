@@ -11,7 +11,7 @@ import de.htwg.towerdefence.model.ITower;
 import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.util.Coord;
 
-public class TimerController extends TimerTask{
+public class TimerController extends TimerTask {
 	
 	IPlayingField field;
 	IPlayer player;
