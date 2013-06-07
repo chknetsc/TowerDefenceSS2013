@@ -15,13 +15,10 @@ public class TowerDefence {
 	
 	private static Scanner scanner;
 	
-	
 	public static void main( String[] args ) throws InterruptedException
 	{
 		// Set up logging through log4j
 		PropertyConfigurator.configure("log4j.properties");
-		
-		
 		
 		// Controller Init
 		IGameController cont;
@@ -32,11 +29,11 @@ public class TowerDefence {
 		Tui tui = new Tui(cont);
 		
 		// Gui Init
-		Thread t1 = new Thread( new GUITD(cont));
-		t1.start();
+		//Thread t1 = new Thread( new GUITD(cont));
+		//t1.start();
 
 		// Game Starten
-		System.out.println("Spiel gestartet");
+		tui.printTui("Spiel gestartet");
 		cont.startGame();
 		
 		// Tui eingaben

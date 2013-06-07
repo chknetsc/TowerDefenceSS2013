@@ -29,7 +29,7 @@ public class TimerController extends TimerTask {
 		List<Coord> waypoints = this.way.getShortesWay();
 		List<IMob> mobs;
 		
-		for(int i = 0; i<waypoints.size()-1; i++) {
+		for(int i = 0; i<waypoints.size()-3; i++) {
 			mobs = this.field.getReadyMobs(waypoints.get(i).getX(), waypoints.get(i).getY());
 			this.field.setListMob(waypoints.get(i+1).getX(), waypoints.get(i+1).getY(), mobs);
 		}

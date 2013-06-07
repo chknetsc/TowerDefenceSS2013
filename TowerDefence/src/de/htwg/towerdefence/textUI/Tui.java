@@ -1,20 +1,29 @@
 package de.htwg.towerdefence.textUI;
 
+import org.apache.log4j.Logger;
+
 import de.htwg.towerdefence.controller.IGameController;
 import de.htwg.towerdefence.util.Coord;
+import de.htwg.towerdefence.util.observer.Event;
+import de.htwg.towerdefence.util.observer.IObserver;
 
 
 // Text based UI 
-public class Tui {
+public class Tui implements IObserver {
 	
 	private IGameController controller;	
 	
+	private String newLine = System.getProperty("line.separator");
+	private Logger logger = Logger.getLogger("de.htwg.towerdefence.textUI");
+	
 	// Connect Controller with Tui
 	public Tui(IGameController controller) {								
-		// Später Oberserver einfügen
 		this.controller = controller;
 		controller.initGameController(10, 10, new Coord(0,0), new Coord(10,10));
+		
+		//controller.addObserver(this);
 	}
+	
 
 	// Handle User Inputs and call the Funktions from Controller
 	public boolean handleInput(String input) {
@@ -105,7 +114,12 @@ public class Tui {
 	}
 	
 	public void printTui(String inhalt) {
-		System.out.println(inhalt);
+		logger.info(newLine + inhalt);
+	}
+
+	@Override
+	public void update(Event e) {
+		printPlayingField();
 	}
 
 }
