@@ -29,8 +29,8 @@ public class TowerDefence {
 		Tui tui = new Tui(cont);
 		
 		// Gui Init
-		//Thread t1 = new Thread( new GUITD(cont));
-		//t1.start();
+		Thread t1 = new Thread( new GUITD(cont));
+		t1.start();
 
 		// Game Starten
 		tui.printTui("Spiel gestartet");
