@@ -20,16 +20,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib/slick.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/lwjgl.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/ibxm.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jogg-0.0.7.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jorbis-0.0.15.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/log4j-1.2.17.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/aopalliance.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/guice-3.0.jar"/>
