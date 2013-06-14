@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 
 import de.htwg.towerdefence.controller.IGameController;
 
-public class GUITD implements Runnable{
+public class GUITD implements Runnable {
 	
 	private IGameController cont;
 	
