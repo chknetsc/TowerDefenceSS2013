@@ -3,6 +3,8 @@ package de.htwg.towerdefence.model.way.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.inject.Inject;
+
 import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.model.way.IGraph;
 import de.htwg.towerdefence.util.Coord;
@@ -16,6 +18,7 @@ public class CheckWay implements ICheckWay {
 	private int sizeX;
 	private int sizeY;
 
+	@Inject
 	public CheckWay() { 
 		this.g = new AdjacencyListUndirectedGraph<Integer>();
 		this.path = new DijkstraShortestPath<Integer>(this.g);

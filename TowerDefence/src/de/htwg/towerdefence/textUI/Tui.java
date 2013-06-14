@@ -2,6 +2,8 @@ package de.htwg.towerdefence.textUI;
 
 import org.apache.log4j.Logger;
 
+import com.google.inject.Inject;
+
 import de.htwg.towerdefence.controller.IGameController;
 import de.htwg.towerdefence.util.Coord;
 import de.htwg.towerdefence.util.observer.Event;
@@ -17,11 +19,11 @@ public class Tui implements IObserver {
 	private Logger logger = Logger.getLogger("de.htwg.towerdefence.textUI");
 	
 	// Connect Controller with Tui
+	@Inject
 	public Tui(IGameController controller) {								
 		this.controller = controller;
 		controller.initGameController(10, 10, new Coord(0,0), new Coord(10,10));
-		
-		//controller.addObserver(this);
+		controller.addObserver(this);
 	}
 	
 

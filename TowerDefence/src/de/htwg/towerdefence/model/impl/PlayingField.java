@@ -2,6 +2,8 @@ package de.htwg.towerdefence.model.impl;
 
 import java.util.List;
 
+import com.google.inject.Inject;
+
 import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayingField;
 import de.htwg.towerdefence.model.ITower;
@@ -16,6 +18,7 @@ public class PlayingField implements IPlayingField {
 	private int sizeY;          
 	
 	// Constructor with standard values
+	@Inject
 	public PlayingField() {
 		this.sizeX = 0;
 		this.sizeY = 0;

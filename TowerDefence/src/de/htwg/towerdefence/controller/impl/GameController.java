@@ -2,6 +2,9 @@ package de.htwg.towerdefence.controller.impl;
 
 import java.util.Timer;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
 import de.htwg.towerdefence.controller.IGameController;
 import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayer;
@@ -14,8 +17,10 @@ import de.htwg.towerdefence.model.impl.Tower;
 import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.model.way.impl.CheckWay;
 import de.htwg.towerdefence.util.Coord;
+import de.htwg.towerdefence.util.observer.Observable;
 
-public class GameController implements IGameController {
+@Singleton
+public class GameController extends Observable implements IGameController {
 		
 	private IPlayingField field;
 	private IPlayer player;
@@ -24,17 +29,17 @@ public class GameController implements IGameController {
 	private Coord end;
 	Timer timer;
 	
+	@Inject
 	public GameController() {
-		
+		this.field = new PlayingField();
+		this.player = new Player();
+		this.way = new CheckWay();
 	}
 	
 	@Override
 	public void initGameController(int sizeX, int sizeY, Coord start, Coord end) {
-		this.field = new PlayingField();
-		this.way = new CheckWay();
 		this.way.initWayPoints(sizeX, sizeY);
 		this.field.initPlayingField(sizeX, sizeY);
-		this.player = new Player();
 		this.start = start;
 		this.end = end;
 		this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY());
@@ -49,7 +54,11 @@ public class GameController implements IGameController {
 		} 
 	    this.way.addWayPoint(x, y);
 	    this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY());
- 	    return false;
+ 	   
+	    notifyObservers();
+	    return false;
+ 	    
+ 	    
 	}
 
 	public String getPlayingField() {

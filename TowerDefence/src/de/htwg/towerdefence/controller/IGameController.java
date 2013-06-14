@@ -1,9 +1,10 @@
 package de.htwg.towerdefence.controller;
 
 import de.htwg.towerdefence.util.Coord;
+import de.htwg.towerdefence.util.observer.IObservable;
 
 
-public interface IGameController {
+public interface IGameController extends IObservable{
 		
 	// Towerfunktionen
 	boolean setTower(int x, int y, int type);

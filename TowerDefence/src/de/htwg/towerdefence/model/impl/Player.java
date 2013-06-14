@@ -1,5 +1,7 @@
 package de.htwg.towerdefence.model.impl;
 
+import com.google.inject.Inject;
+
 import de.htwg.towerdefence.model.IPlayer;
 
 public class Player implements IPlayer {
@@ -10,6 +12,7 @@ public class Player implements IPlayer {
 	private static final int setLive = 10;
 	private static final int setMoney = 1000;
 	
+	@Inject
 	public Player() {
 		this.name = "Player1";
 		this.life = setLive;

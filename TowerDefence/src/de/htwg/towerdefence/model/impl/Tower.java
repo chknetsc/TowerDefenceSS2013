@@ -1,5 +1,6 @@
 package de.htwg.towerdefence.model.impl;
 
+
 import de.htwg.towerdefence.model.ITower;
 
 public class Tower implements ITower {

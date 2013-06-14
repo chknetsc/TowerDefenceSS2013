@@ -1,17 +1,13 @@
 package de.htwg.towerdefence.model.impl;
 
+
 import de.htwg.towerdefence.model.IMob;
 
 public class Mob implements IMob {
 	
-	// Gesundheit des Mobs
-	private int live;	
-	
-	// Time that mob must wait on Field
-	private int speed;
-	
-	// Mainspeed
-	private int speedtmp;		
+	private int live;			// Gesundheit des Mobs	
+	private int speed;			// Time that mob must wait on Field
+	private int speedtmp;		// Mainspeed	
 	
 	// Konstruktor
 	public Mob() {
@@ -19,7 +15,6 @@ public class Mob implements IMob {
 	}
 	
 	// Get and Set Health
-
 	public int getLive() {
 		return live;
 	}
