@@ -34,8 +34,8 @@ public class TowerDefence {
 		//Tui tui = injector.getInstance(Tui.class);
 		
 		// Gui Init
-		//Thread t1 = new Thread(injector.getInstance(GUITD.class));
-		//t1.start();
+		Thread t1 = new Thread(injector.getInstance(GUITD.class));
+		t1.start();
 
 		// Game Starten
 		//tui.printTui("Spiel gestartet");

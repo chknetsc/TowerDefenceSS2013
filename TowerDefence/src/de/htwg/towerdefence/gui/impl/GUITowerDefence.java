@@ -59,7 +59,7 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	gc.setShowFPS(false);
     	
     	this.statusbar = new Image("res/statusbar.png");
-    	//this.background = new Image("res/background.png");
+    	this.background = new Image("res/background.png");
     	this.playingfield = new Image("res/playingfield.png");
     	this.upgrademenu = new Image("res/upgrademenu.png");
     	this.buildmenu = new Image("res/buildmenu.png");
@@ -120,7 +120,7 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	g.setColor(Color.white);
     	g.fillRect(0, 0, gc.getWidth(),gc.getHeight());
     	    	
-    	//this.background.draw(0, 0, 800, 600);
+    	this.background.draw(0, 0, 800, 600);
     	
     	this.statusbar.draw(0, 0, 800, 25);
     	this.statusbar.setAlpha(1.0f);
