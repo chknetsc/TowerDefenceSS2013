@@ -8,6 +8,7 @@ import de.htwg.towerdefence.model.IMob;
 import de.htwg.towerdefence.model.IPlayer;
 import de.htwg.towerdefence.model.IPlayingField;
 import de.htwg.towerdefence.model.ITower;
+import de.htwg.towerdefence.model.impl.Mob;
 import de.htwg.towerdefence.model.way.ICheckWay;
 import de.htwg.towerdefence.util.Coord;
 
@@ -16,12 +17,16 @@ public class TimerController extends TimerTask {
 	IPlayingField field;
 	IPlayer player;
 	ICheckWay way;
+	int nextWave;
+	int lvlWave;
 	
 
 	public TimerController(IPlayingField field, IPlayer player, ICheckWay way) {
 		this.field = field;
 		this.player = player;
 		this.way = way;
+		this.nextWave = 0;
+		this.lvlWave = 1;
 	}
 	
 	@Override
@@ -41,6 +46,16 @@ public class TimerController extends TimerTask {
 		System.out.println(this.field.drawPlayingField());
 		System.out.println("Anzahöl an Leben: " + this.player.getLife());
 		
+		this.nextWave++;
+		System.out.println(this.nextWave);
+		if(this.nextWave>5) {
+				IMob mob = new Mob();
+				mob.setLive(2*this.lvlWave);
+				mob.setSpeed(3);
+				System.out.println(this.field.setMob(0, 0, mob));
+				this.nextWave = 0;
+			}
+		this.lvlWave++;	
 	}
 	
 	public void towersShootOnMobs() {

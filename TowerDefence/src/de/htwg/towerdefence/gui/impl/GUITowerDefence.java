@@ -24,6 +24,7 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
 	private Image buildmenu = null;
 	private Image tower1 = null;
 	private Image button = null;
+	private Image mob = null;
 	
 	private MouseOverArea bsetTower;
 	private MouseOverArea bdelTower;
@@ -65,6 +66,7 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	this.buildmenu = new Image("res/buildmenu.png");
     	this.tower1 = new Image("res/tower1.png");
     	this.button = new Image("res/button.png");
+    	this.mob = new Image("res/mob.png");
     	
     	this.bsetTower = new MouseOverArea(gc, button,55,535,180,30, this);
     	this.bsetTower.setNormalColor(new Color(1, 1, 1, 1.0f));
@@ -165,8 +167,8 @@ public class GUITowerDefence extends BasicGame implements ComponentListener {
     	for(int i = 0; i<this.cont.getSizeX(); i++) {
     		for(int j = 0; j<this.cont.getSizeY(); j++) {
         		if(this.cont.getTypeOf(i,j) == 2) {
-        			g.setColor(Color.blue);
-        			g.fillRect(i*20+40,j*20+60,20,20);
+        			this.mob.draw(i*20+40, j*20+60, 20, 20);
+        			this.mob.setAlpha(1.0f);
         		}
         		if(this.cont.getTypeOf(i,j) == 1) {
         			this.tower1.draw(i*20+40, j*20+60, 20, 20);
