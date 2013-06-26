@@ -54,8 +54,9 @@ public class TimerController extends TimerTask {
 				mob.setSpeed(3);
 				System.out.println(this.field.setMob(0, 0, mob));
 				this.nextWave = 0;
+				this.lvlWave++;	
 			}
-		this.lvlWave++;	
+		
 	}
 	
 	public void towersShootOnMobs() {
@@ -135,7 +136,9 @@ public class TimerController extends TimerTask {
 					System.out.println("Damage: "+ damage);
 					mob.getDamage(damage);						// Leben von Mob abziehen und schauen ob er tot ist
 					System.out.println("MobLife: "+ mob.getLive());
-					// Get Money 
+					if(mob.getLive() < 0) {
+						player.setMoney(player.getMoney() + 50);
+					}
 					}
 					numberOfShoots--;
 			}

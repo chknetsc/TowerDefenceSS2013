@@ -48,8 +48,9 @@ public class GameController extends Observable implements IGameController {
 	@Override
 	public boolean setTower(int x, int y, int type) {
 		this.way.deleteWayPoint(x, y);
-		if(this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY())) {
+		if(this.way.existWay(this.start.getX(), this.start.getY(),this.end.getX(), this.end.getY()) && player.getMoney() >= 150) {
 			ITower tower = new Tower(20,1,2,5,0.6);
+			player.setMoney(player.getMoney() - 150);
 			return this.field.setTower(x, y, tower);
 		} 
 	    this.way.addWayPoint(x, y);
